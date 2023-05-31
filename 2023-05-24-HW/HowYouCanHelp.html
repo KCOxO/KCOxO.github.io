@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="reset.css"> 
+    <link rel="stylesheet" href="./assets/reset.css"> 
     <style>
         .header{
             display:flex;
             background-color: #272626;
-            margin: -3px 0px;
+            margin: auto;
             position: relative;
         }
         .header p
@@ -22,27 +22,26 @@
             font-size: 25px;
             font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             left:0;
-            padding: 29px  0px 29px 230px; 
+            padding:28px  0px 0px 230px; 
             /* 上右下左 */
         } 
         .header nav
         { 
-            
             position: relative;
             text-align: right;
             display:inline-block;
             width: 100%;
             font-size:0;
-            margin:30px 248px 30px 0px;
+            padding:28px 230px 30px 0px;
                /* 上右下左 */
         }
         .header nav img{
             position: relative;
             background-color: #fff;
             border-radius: 50%;
-            height: 25px;
-            width: 25px;
-            margin: 0px 5px;
+            height: 27px;
+            width: 27px;
+            margin: 0px 3px;
         }
         .header nav img:hover{
             transition-duration: 0.4s;
@@ -60,7 +59,7 @@
             color: #535353;
             font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             display:inline-block;
-            margin: 40px 10px 40px 0px;
+            margin: 40px 10px 20px 0px;
             /* 上右下左 */
         }
         /* header1 */
@@ -75,7 +74,7 @@
             text-align: left;
             display:inline-block;
             position:relative;
-            margin:35px 25px 35px 235px;
+            margin:35px 25px 25px 235px;
             height:78px;
             width: 75px;
             left:0;
@@ -90,9 +89,10 @@
             font-size: 25px;
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             
-            margin: 65px 0px 60px 169px; 
+            margin: 70px 0px 60px 169px; 
              /* 上右下左 */
         }
+
         
         .header1 nav a{
             position:relative;
@@ -100,6 +100,11 @@
             text-decoration: none;
             color:#535353;
          
+        }
+        .header1 nav > .home{
+            text-decoration: #ff9933 underline;
+            text-underline-offset: 26px;
+            text-decoration-thickness: 3px;
         }
         
         .header1 nav a:hover{
@@ -120,15 +125,16 @@
             color:#ff9933;
             text-decoration: none;
             border-width: 3px;
-            padding:25px 40px;
-            margin: 47px 254px 47px -1229px;
+            padding:25px 45px;
+            margin: 45px 240px 50px 0px;
             /* 上右下左 */
            
         }
         .item04:hover {
             color:#fff;
-            background-color:#7abee9;;
+            background-color:#7abee9;
             transition-duration: 0.4s;
+            border-color:#7abee9
         }
 
         .body01{
@@ -358,21 +364,20 @@
 <body>
         
         <div class="header">
-            <h1>Anilove</h1>
             <p>📞Toll-free: (123) 456-7890</p>
             <nav>
-                <a href="#"><img src="../twitter 16x16.png" alt=""></a>
-                <a href="#"><img src="../facebook 16x16.png" alt=""></a>
-                <a href="#"><img src="../pinterest 16x16.png" alt=""></a>
-                <a href="#"><img src="../linkedin 16x16.png" alt=""></a>
+                <a href="#"><img src="./Logo/twitter 16x16.png" alt=""></a>
+                <a href="#"><img src="./Logo/facebook 16x16.png" alt=""></a>
+                <a href="#"><img src="./Logo/pinterest 16x16.png" alt=""></a>
+                <a href="#"><img src="./Logo/linkedin 16x16.png" alt=""></a>
             </nav>
         </div>
 
-        <div id="main" class="header1">
-            <a href="#"><img src="asset 0.png" alt="Anilove logo"></a>
+        <div class="header1">
+            <a href="#"><img src="./assets/asset 0.png" alt="Anilove logo"></a>
             <h1><a href="#"><b>Anilove</b></a></h1>
             <nav>
-                <a  href="#">Home</a>
+                <a class="home" href="#">Home</a>
                 <a  href="#">About</a>
                 <a  href="#">Event</a>
                 <a  href="#">News</a>
@@ -390,13 +395,13 @@
             <a href="#"> <p><strong>DONATE NOW !</strong></p></a>
             </div>
             <div>
-                <img src="asset 4.jpeg" alt="cat with knitting">  
+                <img src="./assets/asset 4.jpeg" alt="cat with knitting">  
             </div>
          </div>
 
          <div class="body02">
             <div>
-                <img src="asset 1.jpeg" alt="A woman hug a dog">
+                <img src="./assets/asset 1.jpeg" alt="A woman hug a dog">
             </div>
             <div class="secondword">
             <h3><b>About Us</b></h3><br>
@@ -413,15 +418,15 @@
             <div class="opcitiyimg">
                 <div class="item">
                     <a href="">Volunteer</a>
-                <img src="asset 5.jpeg" alt="a sleeping cat">
+                <img src="./assets/asset 5.jpeg" alt="a sleeping cat">
                 </div>
                 <div class="item">
                     <a href="">Adopt</a>
-                <img src="asset 6.jpeg" alt="a gril hug a dog">
+                <img src="./assets/asset 6.jpeg" alt="a gril hug a dog">
                 </div>
                 <div class="item">
                     <a href="">Sponsor</a>
-                <img src="asset 7.jpeg" alt="a woman hug a cat">
+                <img src="./assets/asset 7.jpeg" alt="a woman hug a cat">
                 </div>
             </div>       
          </div>
