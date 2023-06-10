@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/reset.css">
+    <style>
+        .advantages {
+            width: 960px;
+            margin: auto;
+            font-family: 微軟正黑體;
+        }
+
+        .content {
+            margin: 120px 0px;
+           
+        }
+
+        .content .text-content {
+            width: 340px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .content .text-content .title {
+            display: flex;
+            background-color: #bb0404;
+            font-size: 0;
+            color: #fff;
+            align-items: center;
+        }
+
+        .content .text-content .title span {
+            writing-mode: vertical-lr;
+            font-size: 135px;
+            font-weight: 100;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .content .text-content .title h1 {
+            font-size: 45px;
+            font-weight: 100;
+        }
+
+        .content .text-content .text {
+            position: absolute;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .content .text-content .text h2 {
+            font-weight: bold;
+            font-size: 25px;
+            line-height: 1.5em;
+        }
+
+        .content .text-content .text p {
+            font-weight: lighter;
+            font-size: 18px;
+            letter-spacing: 0.1em;
+        }
+
+        .content .image-content {
+            width: 640px;
+            margin-left: 220px;
+            position: relative;
+            z-index: -1;
+        }
+
+        .content .image-content::after {
+            content: '';
+            width: 440px;
+            height: 290px;
+            background-color: #eeeeee;
+            position: absolute;
+            top: -85px;
+            right: -100px;
+            z-index: -2;
+        }
+
+        .content .image-content a {
+            display: flex;
+            align-items: center;
+        }
+
+        .content .image-content .picture {
+            width: 720px;
+        }
+
+        .content .image-content .picture img {
+            vertical-align: top;
+            width: 100%;
+        }
+
+        .content .image-content .btn img {
+            vertical-align: top;
+            position: absolute;
+            width: 8%;
+            margin-left: -40px;
+        }
+
+
+        .content .revolution-content {
+            display: relative;
+            z-index: 2;
+            background-color: #eeeeee;
+            width: 565px;
+            padding: 20px;
+            margin-top: -20px;
+            margin-left: 50px;
+        }
+
+        .content .revolution-content .revolution span {
+            display: flex;
+            color: #bb0404;
+            font-size: 18px;
+            font-weight: bold;
+            align-items: center;
+            padding-bottom: 10px;
+        }
+
+        .content .revolution-content .revolution span::after {
+            content: '';
+            height: 1px;
+            background-color: #bb0404;
+            flex-grow: 1;
+        }
+
+        .content .revolution-content .revolution-point {
+            display: flex;
+            flex-wrap: wrap;
+            line-height: 1.5em;
+        }
+
+        .content .revolution-content .revolution-point h3 {
+            background-color: #000;
+            font-size: 14px;
+            border-radius: 2px;
+            color: #eee;
+            padding:0 5px;
+        }
+
+        .content .revolution-content .revolution-point p {
+            font-size: 14px;
+            font-weight: bold;
+            color: #7b7b7b;
+        }
+
+        .content .revolution-content .revolution-point p::before {
+            content: '';
+            display: inline-block;
+            width: 0.2em;
+            height: 0.2em;
+            margin: 0em 0.5em;
+            background-color: #bb0404;
+            vertical-align: middle;
+            border-radius: 50%;
+        }
+
+        .content:nth-child(even) .text-content{
+            margin-left:620px;
+        }
+        .content:nth-child(even) .image-content{
+            right: 210px;
+        }
+
+        .content:nth-child(even) .image-content a {
+            flex-direction: row-reverse;  
+        }
+        .content:nth-child(even) .image-content .picture{
+            width: 720px;
+            
+        }
+        .content:nth-child(even) .image-content .btn img{
+            margin-left: -10px;
+        }
+
+        .content:nth-child(even) .revolution-content{
+            margin-left:300px;
+            margin-top:-30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="advantages">
+        <div class="content">
+            <div class="text-content">
+                <div class="title">
+                    <span>01</span>
+                    <h1>操控樂趣</h1>
+                </div>
+                <div class="text">
+                    <h2>人人滿意的駕駛體驗<p>透過最佳重量分配，實現平順起步、直線穩定加速，過彎同時保持車身平穩，帶給駕駛更靈敏的道路反饋，享受隨心馳騁的行駛快感。</p>
+                    </h2>
+                </div>
+            </div>
+            <div class="image-content">
+                <a href="#">
+                    <div class="picture">
+                        <img src="./assets/advantage-1.png" alt="TOYOTA Corolla Sport">
+                    </div>
+                    <div class="btn">
+                        <img src="./assets/video-icon.png" alt="Youtube icon">
+                    </div>
+                </a>
+            </div>
+            <div class="revolution-content">
+                <div class="revolution">
+                    <span>因為我們做了這些革新</span>
+                </div>
+                <div class="revolution-point">
+                    <h3>低重心設計</h3>
+                    <p>透過低重心設計，不僅呈現更低伏的外觀，更能減少車身側傾，保持高速行駛穩定性。</p>
+                </div>
+                <div class="revolution-point">
+                    <h3>車體剛性強化</h3>
+                    <p>車身結構採用超高強度鋼材，提高車輛穩定性，同時藉由雷射強化焊接技術，大幅增加焊點數量，提升車身抗扭剛性，強化駕馭穩定性及安全性。</p>
+                </div>
+                <div class="revolution-point">
+                    <h3>四輪獨立懸吊</h3>
+                    <p>搭載全新四輪獨立懸吊設定，透過懸吊的高承載強度，保持輪胎抓地力，同時兼顧轉向靈敏度與清晰路感回饋，提升駕馭樂趣。</p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="text-content">
+                <div class="title">
+                    <h1>安全守護</h1>
+                    <span>02</span>
+                </div>
+                <div class="text">
+                    <h2>行車更安心的高剛性車體<p>您的愛車會妥善保護您，強悍穩固的車身可使您安全無虞。世界級的安全功能讓您輕鬆自如享受旅程，毫無後顧之憂。</p>
+                    </h2>
+                </div>
+            </div>
+            <div class="image-content">
+                <a href="#">
+                    <div class="picture">
+                        <img src="./assets/advantage-2.png" alt="A woman sits in TOYOTA Corolla Sport">
+                    </div>
+                    <div class="btn">
+                        <img src="./assets/video-icon.png" alt="Youtube icon">
+                    </div>
+                </a>
+            </div>
+            <div class="revolution-content">
+                <div class="revolution">
+                    <span>因為我們做了這些革新</span>
+                </div>
+                <div class="revolution-point">
+                    <h3>主動安全</h3>
+                    <p>可以先進的TSS系統主動偵測路況，輔助駕駛判斷路況並維持行車安全。被動安全。</p>
+                </div>
+                <div class="revolution-point">
+                    <h3>被動安全</h3>
+                    <p>堅固的高剛性車體，使用熱沖壓材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。</p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="text-content">
+                <div class="title">
+                    <span>03</span>
+                    <h1>乘坐舒適</h1>
+                </div>
+                <div class="text">
+                    <h2>令人放鬆舒適的車室空間<p>車室空間設計著重人體工學，透過方向盤，踏板等位置優化，追求更舒適的駕駛位置，並以新型座椅設計，提高座椅包覆性，致力實現長途駕駛疲勞的舒適駕馭體驗。</p>
+                    </h2>
+                </div>
+            </div>
+            <div class="image-content">
+                <a href="#">
+                    <div class="picture">
+                        <img src="./assets/advantage-3.png" alt="A man is driving TOYOTA Corolla Sport">
+                    </div>
+                    <div class="btn">
+                        <img src="./assets/video-icon.png" alt="Youtube icon">
+                    </div>
+                </a>
+            </div>
+            <div class="revolution-content">
+                <div class="revolution">
+                    <span>因為我們做了這些革新</span>
+                </div>
+                <div class="revolution-point">
+                    <h3>駕駛位置最佳化</h3>
+                    <p>針對駕駛位置進行徹底的修改，讓駕駛者可如同握手般自然且舒適地操控方向盤。</p>
+                </div>
+                <div class="revolution-point">
+                    <h3>駕馭視野佳</h3>
+                    <p>考量駕駛坐進車內的高度，透過前擋風玻璃位置的調整，達到盲區極小化，使駕駛視野更開闊，同步提升駕取安全。</p>
+                </div>
+                <div class="revolution-point">
+                    <h3>更寧靜的車室</h3>
+                    <p>採用最新三層結構的隔音材料，與引擎，變速箱的零件改革，將座艙的震動抑制在最小限度，提供乘客舒適安靜的感受。</p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="text-content">
+                <div class="title">
+                    <h1>以人為本</h1>
+                    <span>04</span>
+                </div>
+                <div class="text">
+                    <h2>使用者導向的貼心設計<p>藉由高度人性化的介面整合，傳遞車輛資訊，豐富日常駕駛體驗。從提升油耗表現到行李廂空間最適化，均細心考量，更加貼近使用者真正所需與習慣，並給予即時回應。</p>
+                    </h2>
+                </div>
+            </div>
+            <div class="image-content">
+                <a href="#">
+                    <div class="picture">
+                        <img src="./assets/advantage-4.png" alt="touch TOYOTA Corolla Sport control template">
+                    </div>
+                    <div class="btn">
+                        <img src="./assets/video-icon.png" alt="Youtube icon">
+                    </div>
+                </a>
+            </div>
+            <div class="revolution-content">
+                <div class="revolution">
+                    <span>因為我們做了這些革新</span>
+                </div>
+                <div class="revolution-point">
+                    <h3>優異油耗表現</h3>
+                    <p>以Corolla Sport為例，更強勁的高效引擎將熱效率提升至40％，達到世界級水準，屡屡突破燃油效率新境界。</p>
+                </div>
+                <div class="revolution-point">
+                    <h3>行李箱空間最適化</h3>
+                    <p>以第四代Prius為例，透過將電池位置移到後座下方，讓行李箱擁有更大的空間。</p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="text-content">
+                <div class="title">
+                    <span>05</span>
+                    <h1>引以為傲</h1>
+                </div>
+                <div class="text">
+                    <h2>極具吸引力的精心設計<p>TNGA車款擁有讓人忍不住回頭的新潮外觀，讓駕駛充滿自信的駕馭快感！不僅讓車主能展現個人風格，能讓擁有者都能引以為傲。</p>
+                    </h2>
+                </div>
+            </div>
+            <div class="image-content">
+                <a href="#">
+                    <div class="picture">
+                        <img src="./assets/advantage-5.png" alt="show TOYOTA Corolla Sport detail">
+                    </div>
+                    <div class="btn">
+                        <img src="./assets/video-icon.png" alt="Youtube icon">
+                    </div>
+                </a>
+            </div>
+            <div class="revolution-content">
+                <div class="revolution">
+                    <span>因為我們做了這些革新</span>
+                </div>
+                <div class="revolution-point">
+                    <h3>設計概念</h3>
+                    <p>TNGA低重心設計，不僅呈現更低伏的運動化外觀，更講究高品質內裝的一致性。</p>
+                </div>
+                <div class="revolution-point">
+                    <h3>環保概念</h3>
+                    <p>車為了對環境保護盡一份心力，我們全面提升傳統引擎，變速箱與油電複合動力的動力效能。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
