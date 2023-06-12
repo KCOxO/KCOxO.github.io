@@ -16,12 +16,18 @@
         }
 
         .latestnews {
-            margin: 10% auto;
+            margin: 15% auto;
             padding: 0 5%;
         }
+        
+        .container {
+                display: flex;
+                flex-wrap: wrap;
+            }
 
         .post-title {
             display: flex;
+            width: 100%;
             justify-content: space-between;
             align-items: center;
             line-height: 130%;
@@ -52,7 +58,6 @@
         }
 
         .post-title a img {
-            border: 1px solid #f65936;
             border-radius: 50%;
         }
 
@@ -69,12 +74,11 @@
         }
 
         .post-content-main a {
-            margin-left: -6%;
             line-height: 150%;
         }
 
         .post-content-main a img {
-            max-width: 111.5%;
+            max-width: 100%;
             object-fit: cover;
             object-position: center center;
         }
@@ -87,6 +91,7 @@
         }
 
         .post-content-main a p {
+            display: block;
             font-size: 13px;
             font-weight: 500;
             font-family: monospace;
@@ -94,6 +99,7 @@
         }
 
         .post-content-main a span {
+            display: block;
             font-size: 12px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #71747c;
@@ -151,46 +157,51 @@
         @media screen and (min-width: 768px) {
             .latestnews {
                 max-width: 1200px;
+                margin:-1% 0;
             }
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                margin:-1% 0;
+            }
+
+            .container:nth-child(even) .container-mainarea{
+                order:1;
+            }
+            .post-title{
+                margin-bottom: -1%;
+            }
+
             .post-title h2 {
                 max-width: 50%;
-                font-size: 24px;
-              
+                font-size: 24px
             }
 
             .post-title span {
                 display: inline-block;
                 font-weight: bold;
             }
-
-            .container {
-                display: flex;
-                margin: -4% 0 0;
-                border: 1px solid blue;
+            .container-mainarea{
+                flex:1;
             }
-
+            .post-content-main{
+                margin-left:0;
+            }
             .post-content-main span{
                 top:0;
                 margin:0.5% auto;
             }
-
-            .post-content-main a {
-                margin-left: 0.1%;
-            }
-
             .post-content-main a img {
-                max-width: 65%;
+                max-width: 100%;
                 object-fit: cover;
                 object-position: center center;
                 border-radius: 2%;
             }
 
+
             .main-text {
-                width: 65%;
-                height: 100%;
                 display: flex;
                 justify-content: space-between;
-                align-items: center;
             }
 
             .post-content-main a h3 {
@@ -204,15 +215,20 @@
             .post-content-main p {
                 width: 45%;
                 height: 100%;
-                line-height: 115%;
+                line-height: 200%;
             }
             .container-subarea{
-                margin-left: -27%;
-                margin-top:0%;
-                border:1px solid red;
+                flex:1;
+                width: 45%;
+                margin-top: 0;
             }
             .post-content-sub{
-                margin-top:0%;
+                margin-top: 0;
+            }
+            .sub-icon{
+                display: inline-block;
+                width: 4%;
+                height: 5%;
             }
 
         }
@@ -223,11 +239,11 @@
 
 <body>
     <div class="latestnews">
-        <div class="post-title">
-            <h2>旅行者にできること<span>What Travelers Can Do</span></h2>
-            <a href="#">すべて見る <img src="./icons/right_arrow_short.svg" alt="arrow"></a>
-        </div>
         <div class="container">
+            <div class="post-title">
+                <h2>旅行者にできること<span>What Travelers Can Do</span></h2>
+                <a href="#">すべて見る <img src="./icons/right_arrow_short.svg" alt="arrow"></a>
+            </div>
             <div class="container-mainarea">
                 <div class="post-content-main">
                     <a href="#">
@@ -278,11 +294,11 @@
                 </div>
             </div>
         </div>
-        <div class="post-title">
-            <h2>企業の取組み<span>Corporate Initiatives</span></h2>
-            <a href="#">すべて見る <img src="./icons/right_arrow_short.svg" alt="arrow"></a>
-        </div>
         <div class="container">
+            <div class="post-title">
+                <h2>企業の取組み<span>Corporate Initiatives</span></h2>
+                <a href="#">すべて見る <img src="./icons/right_arrow_short.svg" alt="arrow"></a>
+            </div>
             <div class="container-mainarea">
                 <div class="post-content-main">
                     <span>ジャルパック</span>
@@ -331,11 +347,11 @@
                 </div>
             </div>
         </div>
-        <div class="post-title">
-            <h2>ハワイ州観光局の取組み<span>Hawai‘i Tourism Japan Initiatives</span></h2>
-            <a href="#">すべて見る <img src="./icons/right_arrow_short.svg" alt="arrow"></a>
-        </div>
         <div class="container">
+            <div class="post-title">
+                <h2>ハワイ州観光局の取組み<span>Hawai‘i Tourism Japan Initiatives</span></h2>
+                <a href="#">すべて見る <img src="./icons/right_arrow_short.svg" alt="arrow"></a>
+            </div>
             <div class="container-mainarea">
                 <div class="post-content-main">
                     <span>ハワイ州観光局</span>
@@ -387,11 +403,11 @@
                 </div>
             </div>
         </div>
-        <div class="post-title">
-            <h2>コミュニティの取り組み<span>Communitiy Initiatives</span></h2>
-            <a href="#">すべて見る <img src="./icons/right_arrow_short.svg" alt="arrow"></a>
-        </div>
         <div class="container">
+            <div class="post-title">
+                <h2>コミュニティの取り組み<span>Communitiy Initiatives</span></h2>
+                <a href="#">すべて見る <img src="./icons/right_arrow_short.svg" alt="arrow"></a>
+            </div>
             <div class="container-mainarea">
                 <div class="post-content-main">
                     <a href="#">
@@ -401,7 +417,6 @@
                             <p>Zero Waste
                                 Oahuは現在の生産方法、購買システム、廃棄物管理システムに積極的に介入するシステムを通じて、バランスのとれた消費文化と廃棄物の少ない未来<span>2022.07.20</span>
                             </p>
-
                         </div>
                     </a>
                 </div>
