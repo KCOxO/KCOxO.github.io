@@ -14,6 +14,10 @@
             max-width: 100%;
         }
 
+        li {
+            font-size: 14px;
+        }
+
         .card {
             border: 1px solid black;
             margin-bottom: 30px;
@@ -2176,6 +2180,7 @@
             btnListHero = document.getElementById("listhero");
             btnTableHero = document.getElementById("tablehero");
 
+
             btnCreateHeroArray.addEventListener("click", function () {
                 //alert("從DOM建立英雄人物陣列資料後清除container");
 
@@ -2204,10 +2209,14 @@
                     return;
                 }
                 alert("以文字迭代英雄人物資料！");
-                heroArray.forEach((heroData, index) => {
-                    document.body.append(JSON.stringify(heroData), document.createElement("br"));
-                });
 
+                const ul = document.createElement("ul");
+                heroArray.forEach((heroData, index) => {
+                    const li = document.createElement("li");
+                    li.append(JSON.stringify(heroData), document.createElement("br"));
+                    ul.append(li);
+                });
+                container.append(ul);
             });
 
 
@@ -2244,12 +2253,7 @@
             };
         }
 
-
-
     </script>
-
-
-
 </body>
 
 </html>
