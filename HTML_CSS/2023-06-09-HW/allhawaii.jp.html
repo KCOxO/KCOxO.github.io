@@ -63,35 +63,35 @@
         }
 
 
-        .post-content-main {
+        .card-mainarea-content {
             display: block;
             margin-bottom: 10%;
         }
 
-        .post-content-main span {
+        .card-mainarea-content span {
             display: block;
             font-size: 10px;
             margin: 2% 0;
         }
 
-        .post-content-main a {
+        .card-mainarea-content a {
             line-height: 150%;
         }
 
-        .post-content-main a img {
+        .card-mainarea-content a img {
             max-width: 100%;
             object-fit: cover;
             object-position: center center;
         }
 
-        .post-content-main a h3 {
+        .card-mainarea-content a h3 {
             font-size: 18px;
             font-weight: bold;
             color: #000;
             margin: 3% 0;
         }
 
-        .post-content-main a p {
+        .card-mainarea-content a p {
             display: block;
             font-size: 13px;
             font-weight: 500;
@@ -99,14 +99,14 @@
             color: #71747c;
         }
 
-        .post-content-main a span {
+        .card-mainarea-content a span {
             display: block;
             font-size: 12px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #71747c;
         }
 
-        .container-subarea {
+        .card-subarea {
             width: 100%;
             margin: auto;
             display: grid;
@@ -115,24 +115,24 @@
             place-content: center center;
         }
 
-        .post-content-sub {
+        .card-subarea-content {
             max-width: 100%;
             margin: 10% 4%;
         }
 
-        .post-content-sub a h2 {
+        .card-subarea-content a h2 {
             display: inline-block;
             color: #000;
             font-size: 12px;
             margin-bottom: 2%;
         }
 
-        .post-content-sub a .sub-icon {
+        .card-subarea-content a .sub-icon {
             width: 12%;
             margin: 2% 0;
         }
 
-        .post-content-sub a .sub-mainpic {
+        .card-subarea-content a .sub-mainpic {
             width: 100%;
             height: 40%;
             object-fit: cover;
@@ -140,7 +140,7 @@
             margin-bottom: 3%;
         }
 
-        .post-content-sub a h3 {
+        .card-subarea-content a h3 {
             font-size: 13px;
             font-weight: bold;
             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -149,7 +149,7 @@
 
         }
 
-        .post-content-sub a span {
+        .card-subarea-content a span {
             font-size: 10px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #000;
@@ -166,7 +166,7 @@
                 margin:-1% 0;
             }
 
-            .container:nth-child(even) .container-mainarea{
+            .container:nth-child(even) .card-mainarea{
                 order:1;
             }
             .post-title{
@@ -182,17 +182,17 @@
                 display: inline-block;
                 font-weight: bold;
             }
-            .container-mainarea{
+            .card-mainarea{
                 flex:1;
             }
-            .post-content-main{
+            .card-mainarea-content{
                 margin-left:0;
             }
-            .post-content-main span{
+            .card-mainarea-content span{
                 top:0;
                 margin:0.5% auto;
             }
-            .post-content-main a img {
+            .card-mainarea-content a img {
                 max-width: 100%;
                 object-fit: cover;
                 object-position: center center;
@@ -205,7 +205,7 @@
                 justify-content: space-between;
             }
 
-            .post-content-main a h3 {
+            .card-mainarea-content a h3 {
                 display: block;
                 width: 45%;
                 height: 100%;
@@ -213,17 +213,17 @@
                 line-height: 120%;
             }
 
-            .post-content-main p {
+            .card-mainarea-content p {
                 width: 45%;
                 height: 100%;
                 line-height: 200%;
             }
-            .container-subarea{
+            .card-subarea{
                 flex:1;
                 width: 45%;
                 margin-top: 0;
             }
-            .post-content-sub{
+            .card-subarea-content{
                 margin-top: 0;
             }
             .sub-icon{
@@ -249,8 +249,8 @@
                 <h1>旅行者にできること<span>What Travelers Can Do</span></h1>
                 <a href="#">すべて見る <img src="./icons/right_arrow_short.svg" alt="arrow"></a>
             </div>
-            <div class="container-mainarea">
-                <div class="post-content-main">
+            <div class="card-mainarea">
+                <div class="card-mainarea-content">
                     <a href="#">
                         <img src="./assets/asset01.png" alt="USIE">
                         <div class="main-text">
@@ -261,8 +261,8 @@
                     </a>
                 </div>
             </div>
-            <div class="container-subarea">
-                <div class="post-content-sub">
+            <div class="card-subarea">
+                <div class="card-subarea-content">
                     <a href="#"><img src="./icons/icon01.svg" class=sub-icon alt="Activity Icon">
                         <h2>エコ活動</h2>
                         <img src="./assets/asset01-2.jpg" class="sub-mainpic"
@@ -271,7 +271,7 @@
                         <span>2022.06.14</span>
                     </a>
                 </div>
-                <div class="post-content-sub">
+                <div class="card-subarea-content">
                     <a href="#"><img src="./icons/icon01-2.svg" class=sub-icon alt="Calendar Icon">
                         <h2>イベント</h2>
                         <img src="./assets/asset01-3.jpg" class="sub-mainpic" alt="150th Anniversary Of Kamehameha Day">
@@ -279,7 +279,7 @@
                         <span>2022.06.08</span>
                     </a>
                 </div>
-                <div class="post-content-sub">
+                <div class="card-subarea-content">
                     <a href="#"><img src="./icons/icon01-3.svg" class=sub-icon alt="Tag Icon">
                         <h2>その他</h2>
                         <img src="./assets/asset01-4.jpg" class="sub-mainpic"
@@ -288,7 +288,7 @@
                         <span>2022.01.28</span>
                     </a>
                 </div>
-                <div class="post-content-sub">
+                <div class="card-subarea-content">
                     <a href="#"><img src="./icons/icon01-4.svg" class=sub-icon alt="Surfing Icon">
                         <h2>カルチャー</h2>
                         <img src="./assets/asset01-5.png" class="sub-mainpic"
@@ -304,8 +304,8 @@
                 <h1>企業の取組み<span>Corporate Initiatives</span></h1>
                 <a href="#">すべて見る <img src="./icons/right_arrow_short.svg" alt="arrow"></a>
             </div>
-            <div class="container-mainarea">
-                <div class="post-content-main">
+            <div class="card-mainarea">
+                <div class="card-mainarea-content">
                     <span>ジャルパック</span>
                     <a href="#">
                         <img src="./assets/asset02.jpeg" alt="USIE">
@@ -317,8 +317,8 @@
                     </a>
                 </div>
             </div>
-            <div class="container-subarea">
-                <div class="post-content-sub">
+            <div class="card-subarea">
+                <div class="card-subarea-content">
                     <a href="#"><p></p>
                         <img src="./assets/asset02-2.jpg" class="sub-mainpic"
                             alt="Turn discarded fishing nets into clothes">
@@ -326,14 +326,14 @@
                         <span>2022.07.27</span>
                     </a>
                 </div>
-                <div class="post-content-sub">
+                <div class="card-subarea-content">
                     <a href="#"><p></p>
                         <img src="./assets/asset02-3.jpg" class="sub-mainpic" alt="33rd Annual World Turtle Day">
                         <h3>第33回タートル・インディペンデンス・デイ開催</h3>
                         <span>2022.07.01</span>
                     </a>
                 </div>
-                <div class="post-content-sub">
+                <div class="card-subarea-content">
                     <a href="#">
                         <h2>オラカイ株式会社</h2>
                         <img src="./assets/asset02-4.jpg" class="sub-mainpic" alt="Sustainable Initiatives at Orakai">
@@ -341,7 +341,7 @@
                         <span>2022.06.15</span>
                     </a>
                 </div>
-                <div class="post-content-sub">
+                <div class="card-subarea-content">
                     <a href="#">
                         <h2 class="word-fading">ザ・リッツカールトン・レジデンス・ワイキキ</h2>
                         <img src="./assets/asset02-5.jpg" class="sub-mainpic"
@@ -357,8 +357,8 @@
                 <h1>ハワイ州観光局の取組み<span>Hawai‘i Tourism Japan Initiatives</span></h1>
                 <a href="#">すべて見る <img src="./icons/right_arrow_short.svg" alt="arrow"></a>
             </div>
-            <div class="container-mainarea">
-                <div class="post-content-main">
+            <div class="card-mainarea">
+                <div class="card-mainarea-content">
                     <span>ハワイ州観光局</span>
                     <a href="#">
                         <img src="./assets/asset03.jpg"
@@ -372,8 +372,8 @@
                     </a>
                 </div>
             </div>
-            <div class="container-subarea">
-                <div class="post-content-sub">
+            <div class="card-subarea">
+                <div class="card-subarea-content">
                     <a href="#">
                         <h2>ハワイ州観光局</h2>
                         <img src="./assets/asset03-1.jpeg" class="sub-mainpic" alt="HHawaii Tourism Board">
@@ -381,7 +381,7 @@
                         <span>2022.10.01</span>
                     </a>
                 </div>
-                <div class="post-content-sub">
+                <div class="card-subarea-content">
                     <a href="#">
                         <h2>ハワイ州観光局</h2>
                         <img src="./assets/asset03-2.png" class="sub-mainpic" alt="Hawaii Tourism Board">
@@ -390,7 +390,7 @@
                         <span>2022.06.06</span>
                     </a>
                 </div>
-                <div class="post-content-sub">
+                <div class="card-subarea-content">
                     <a href="#">
                         <h2>ハワイ州観光局</h2>
                         <img src="./assets/asset03-3.jpg" class="sub-mainpic" alt="Hawaii Tourism Board">
@@ -398,7 +398,7 @@
                         <span>2022.04.22</span>
                     </a>
                 </div>
-                <div class="post-content-sub">
+                <div class="card-subarea-content">
                     <a href="#">
                         <h2>ハワイ州観光局</h2>
                         <img src="./assets/asset03-4.jpg" class="sub-mainpic" alt="Hawaii Tourism Board">
@@ -413,8 +413,8 @@
                 <h1>コミュニティの取り組み<span>Communitiy Initiatives</span></h1>
                 <a href="#">すべて見る <img src="./icons/right_arrow_short.svg" alt="arrow"></a>
             </div>
-            <div class="container-mainarea">
-                <div class="post-content-main">
+            <div class="card-mainarea">
+                <div class="card-mainarea-content">
                     <a href="#">
                         <img src="./assets/asset04.jpg" alt="Zero Waste Oahu ">
                         <div class="main-text">
@@ -426,8 +426,8 @@
                     </a>
                 </div>
             </div>
-            <div class="container-subarea">
-                <div class="post-content-sub">
+            <div class="card-subarea">
+                <div class="card-subarea-content">
                     <a href="#">
                         <h2 class="word-fading">サスティナブル・コーストラインズ・ハワイ（Sustainable Coastlines Hawaii）</h2>
                         <img src="./assets/asset04-1.jpeg" class="sub-mainpic" alt="HThe Kaimukī Cleanup Festival">
@@ -435,7 +435,7 @@
                         <span>2022.06.20</span>
                     </a>
                 </div>
-                <div class="post-content-sub">
+                <div class="card-subarea-content">
                     <a href="#"><p></p>
                         <img src="./assets/asset04-2.jpg" class="sub-mainpic"
                             alt="Sea turtles are protected from extinction by ''Marama i Na Honu''">
@@ -443,7 +443,7 @@
                         <span>2022.05.26</span>
                     </a>
                 </div>
-                <div class="post-content-sub">
+                <div class="card-subarea-content">
                     <a href="#">
                         <h2 class="word-fading">アウトリガー・ホテルズ＆リゾーツ</h2>
                         <img src="./assets/asset04-3.jpg" class="sub-mainpic" alt="THINK GLOBALLY, ACT LOCALLY">
@@ -451,7 +451,7 @@
                         <span>2022.04.23</span>
                     </a>
                 </div>
-                <div class="post-content-sub">
+                <div class="card-subarea-content">
                     <a href="#">
                         <h2 class="word-fading">クプ・ハワイ（KUPU Hawaii）</h2>
                         <img src="./assets/asset04-4.jpg" class="sub-mainpic" alt="KUPU Hawaii">
