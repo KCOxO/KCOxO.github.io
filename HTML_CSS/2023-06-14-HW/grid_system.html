@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="grid.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .card {
+        display: flex;
+        border: 1px solid black;
+        justify-items: center;
+        box-sizing: border-box;
+    }
+
+    .card .pic {
+        width: 100%;
+        aspect-ratio: 3/2;
+    }
+
+    .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        vertical-align: middle;
+    }
+
+    .card .txt {
+        display: block;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        padding: 5%;
+        box-sizing: border-box;
+    }
+
+    @media screen and (min-width: 768px) {
+        .card {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {}
+
+    @media screen and (min-width: 1200px) {
+
+        .card-flex {
+            flex-direction: row;
+        }
+
+        .txt {
+            vertical-align: center;
+        }
+
+        .txt h3 {
+            font-size: 50px;
+            padding: 0.5% 0;
+        }
+
+        .txt p {
+            font-size: 16px;
+            padding: 5% 0;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-3 col-xl-12">
+                <div class="card card-flex">
+                    <div class="pic">
+                        <img src="https://picsum.photos/300/200?random=22">
+                    </div>
+                    <div class="txt">
+                        <h3>title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus placeat maxime hic quae
+                            suscipit nulla, qui nam odit quibusdam at!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-xl-4">
+                <div class="card">
+                    <div class="pic">
+                        <img src="https://picsum.photos/300/200?random=22">
+                    </div>
+                    <div class="txt">
+                        <h3>title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus placeat maxime hic quae
+                            suscipit nulla, qui nam odit quibusdam at!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-xl-4">
+                <div class="card">
+                    <div class="pic">
+                        <img src="https://picsum.photos/300/200?random=22">
+                    </div>
+                    <div class="txt">
+                        <h3>title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus placeat maxime hic quae
+                            suscipit nulla, qui nam odit quibusdam at!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-xl-4">
+                <div class="card">
+                    <div class="pic">
+                        <img src="https://picsum.photos/300/200?random=22">
+                    </div>
+                    <div class="txt">
+                        <h3>title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus placeat maxime hic quae
+                            suscipit nulla, qui nam odit quibusdam at!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-xl-6">
+                <div class="card card-flex">
+                    <div class="pic">
+                        <img src="https://picsum.photos/300/200?random=22">
+                    </div>
+                    <div class="txt">
+                        <h3>title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus placeat maxime hic quae
+                            suscipit nulla, qui nam odit quibusdam at!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-xl-6">
+                <div class="card card-flex">
+                    <div class="pic">
+                        <img src="https://picsum.photos/300/200?random=22">
+                    </div>
+                    <div class="txt">
+                        <h3>title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus placeat maxime hic quae
+                            suscipit nulla, qui nam odit quibusdam at!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
