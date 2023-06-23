@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./assets/reset.css">
-    <link rel="stylesheet" href="grid.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <style>
     img {
@@ -17,17 +17,9 @@
         text-decoration: none;
     }
 
-    .latestnews {
-        max-width: 1200px;
-        margin: auto 15px;
-    }
-
     .title {
         max-width: 100%;
-        display: flex;
-        padding: 20px 0;
-        align-items: center;
-        justify-content: space-between;
+        padding: 20px;
         border-top: 1px solid rgba(0, 0, 0, 0.12);
         box-sizing: border-box;
     }
@@ -47,10 +39,10 @@
     }
 
     .title .anchor {
+        text-align: right;
         color: #f65936;
         font-size: 13px;
         font-weight: bold;
-        box-sizing: border-box;
 
     }
 
@@ -84,17 +76,20 @@
 
     .highlight .anchor img {
         height: 100%;
-        width: 110%;
+        width: 108%;
         object-fit: cover;
-        margin-left: -18px;
+        margin-left: -15px;
         box-sizing: border-box;
+    }
+
+    .text {
+        margin: 0.5em 0;
     }
 
     .text_title h2 {
         font-size: 18px;
         font-weight: bold;
         line-height: 150%;
-        margin: 0.5em 0;
         color: #000;
     }
 
@@ -104,7 +99,6 @@
         line-height: 150%;
         font-family: monospace;
         color: #71747c;
-        margin-bottom: 0.5em;
     }
 
     .text_date {
@@ -114,15 +108,10 @@
     }
 
 
-    .others {
-        display: flex;
-        flex-wrap: wrap;
-        box-sizing: border-box;
-
-    }
-
-    .other {
-        padding-bottom: 30px;
+    .other .anchor {
+        display: block;
+        width: 100%;
+        height: 100%;
     }
 
     .other:nth-child(odd) {
@@ -133,13 +122,6 @@
 
     .other:nth-child(even) {
         max-width: 48%;
-    }
-
-
-    .other .anchor {
-        display: block;
-        width: 100%;
-        height: 100%;
     }
 
     .other .icon {
@@ -222,44 +204,33 @@
             margin-left: 1em;
         }
 
-
         .title .anchor img {
             border-radius: 50%;
-            margin-left: 10px;
         }
 
+        .post {
+            display: flex;
+            padding: 0;
+        }
 
-        .post .highlight .text {
+        .container:nth-child(odd) .post {
+            padding-right: 2%;
+        }
+
+        .container:nth-child(odd) .highlight {
+            margin-right: 2%;
+        }
+
+        .container .post .highlight .text {
             display: flex;
             margin-top: 6%;
 
-        }
-
-        .post .highlight .text_title {
-            width: 50%;
-            padding: 0 2px;
-            box-sizing: border-box;
         }
 
         .post .highlight .text_title h2 {
 
             font-size: 26px;
             margin-top: -0.1%;
-        }
-
-        .post .highlight .text_content {
-            width: 50%;
-            margin: 0 2px;
-            box-sizing: border-box;
-        }
-
-        .highlight {
-            max-width: 50%;
-
-        }
-
-        .others {
-            max-width: 48%;
         }
 
         .highlight .img img {
@@ -272,47 +243,54 @@
             font-size: 16px;
         }
 
-        @media screen and (min-width: 1200px) {
-            .latestnews {
-                margin: auto;
-            }
-
-            .other .icon img {
-                height: 8%;
-                width: 8%;
-                object-fit: cover;
-            }
-
-            .container:nth-child(even) .highlight {
-                order: 1;
-            }
-
+        .container:nth-child(even) .post {
+            padding-left: 2%;
         }
+
+        .container:nth-child(even) .highlight {
+            order: 1;
+            margin-left: 2%;
+        }
+
+        .container:nth-child(even) .others {
+            margin-left: -2%;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+
+        .other .icon img {
+            height: 8%;
+            width: 8%;
+            object-fit: cover;
+        }
+
 
     }
 </style>
 
 <body>
-    <div class="latestnews">
-        <div class="container">
-            <div class="title">
-                <div class="title_text">
+    <div class="container mb-3">
+        <div class="row">
+            <div class="title d-flex align-items-center">
+                <div class="title_text col-8 col-md-9">
                     <h1 lang="jp">旅行者にできること</h1>
                     <span lang="en">What Travelers Can Do</span>
                 </div>
-                <a href="#" class="anchor">すべて見る<img src="./icons/right_arrow_short.svg" alt="arrow"></a>
+                <a href="#" class="anchor col-4 col-md-3 ">すべて見る<img src="./icons/right_arrow_short.svg"
+                        alt="arrow"></a>
             </div>
-            <div class="post row">
-                <div class="highlight">
+            <div class="post">
+                <div class="highlight col-12 col-md-6">
                     <a href="#" class="anchor">
                         <div class="img">
                             <img src="./assets/asset01.png" alt="USIE">
                         </div>
-                        <div class="text">
-                            <div class="text_title">
+                        <div class="text col-md-12">
+                            <div class="text_title col-md-6">
                                 <h2>今年もアースデーにビーチクリーンを開催！</h2>
                             </div>
-                            <div class="text_content">
+                            <div class="text_content col-md-6">
                                 <h3 class="text_quote">
                                     毎年4月22日は地球環境について考える日「アースデー」。最近ではこの日だけでなく、4月をアース月間として世界中で環境保護活動が行われるようになりました。太平洋の
                                 </h3>
@@ -321,8 +299,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="others">
-                    <div class="other">
+                <div class="others col-12 col-md-6 d-flex flex-wrap">
+                    <div class="other col-6 col-md-6 mb-3">
                         <a href="#" class="anchor">
                             <div class="icon">
                                 <img src="./icons/icon01.svg" class=icon_img alt="Activity Icon">
@@ -339,7 +317,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="other">
+                    <div class="other col-6 col-md-6 mb-3">
                         <a href="#" class="anchor">
                             <div class="icon">
                                 <img src="./icons/icon01-2.svg" class=icon_img alt="Calendar Icon">
@@ -356,7 +334,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="other">
+                    <div class="other col-6 col-md-6 mb-3">
                         <a href="#" class="anchor">
                             <div class="icon">
                                 <img src="./icons/icon01-3.svg" class=icon_img alt="ATag Icon">
@@ -373,7 +351,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="other">
+                    <div class="other col-6 col-md-6 mb-3">
                         <a href="#" class="anchor">
                             <div class="icon">
                                 <img src="./icons/icon01-4.svg" class=icon_img alt="Surfing Icon">
@@ -394,26 +372,28 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="title">
-                <div class="title_text">
+    </div>
+    <div class="container mb-3">
+        <div class="row">
+            <div class="title d-flex align-items-center">
+                <div class="title_text col-8 col-md-9">
                     <h1 lang="jp">企業の取組み</h1>
                     <span lang="en">Corporate Initiatives</span>
                 </div>
-                <a href="#" class="anchor">すべて見る<img src="./icons/right_arrow_short.svg" alt="arrow"></a>
+                <a href="#" class="anchor col-4 col-md-3">すべて見る<img src="./icons/right_arrow_short.svg" alt="arrow"></a>
             </div>
-            <div class="post row">
-                <div class="highlight">
+            <div class="post">
+                <div class="highlight col-12 col-md-6">
                     <a href="#" class="anchor">
                         <div class="icon">ジャルパック</div>
                         <div class="img">
                             <img src="./assets/asset02.jpeg" alt="USIE">
                         </div>
-                        <div class="text">
-                            <div class="text_title">
+                        <div class="text col-md-12">
+                            <div class="text_title col-md-6">
                                 <h2>チームJALハワイ】ビーチクリーンアップ活動で地元コミュニティに貢献！￼</h2>
                             </div>
-                            <div class="text_content">
+                            <div class="text_content col-md-6">
                                 <h3 class="text_quote">
                                     JALハワイ支店とJALPAK International
                                     Hawaiiで構成された“チームJALハワイ”は、ハワイ州観光局が提唱する「マラマハワイ～ハワイを思
@@ -423,8 +403,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="others">
-                    <div class="other">
+                <div class="others col-12 col-md-6 d-flex flex-wrap">
+                    <div class="other col-6 mb-3">
                         <a href="#" class="anchor">
                             <div class="img">
                                 <img src="./assets/asset02-2.jpg" alt="Turn discarded fishing nets into clothes">
@@ -437,7 +417,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="other">
+                    <div class="other col-6 mb-3">
                         <a href="#" class="anchor">
                             <div class="img">
                                 <img src="./assets/asset02-3.jpg" alt="33rd Annual World Turtle Day">
@@ -450,7 +430,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="other">
+                    <div class="other col-6 mb-3">
                         <a href="#" class="anchor">
                             <div class="icon">オラカイ株式会社</div>
                             <div class="img">
@@ -464,7 +444,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="other">
+                    <div class="other col-6 mb-3">
                         <a href="#" class="anchor">
                             <div class="icon fading">ザ・リッツカールトン・レジデンス・ワイキキ</div>
                             <div class="img">
@@ -483,27 +463,29 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="title">
-                <div class="title_text">
+    </div>
+    <div class="container mb-3">
+        <div class="row">
+            <div class="title d-flex align-items-center">
+                <div class="title_text col-8 col-md-9">
                     <h1 lang="jp">ハワイ州観光局の取組み</h1>
                     <span lang="en">Hawai‘i Tourism Japan Initiatives</span>
                 </div>
-                <a href="#" class="anchor">すべて見る<img src="./icons/right_arrow_short.svg" alt="arrow"></a>
+                <a href="#" class="anchor col-4 col-md-3">すべて見る<img src="./icons/right_arrow_short.svg" alt="arrow"></a>
             </div>
-            <div class="post row">
-                <div class="highlight">
+            <div class="post">
+                <div class="highlight col-12 col-md-6">
                     <a href="#" class="anchor">
                         <div class="icon">ハワイ州観光局</div>
                         <div class="img">
                             <img src="./assets/asset03.jpg"
                                 alt="Maui County announces ban on sunscreens affecting marine life">
                         </div>
-                        <div class="text">
-                            <div class="text_title">
+                        <div class="text col-md-12">
+                            <div class="text_title col-md-6">
                                 <h2>マウイ郡、ハワイ島、海洋生物に影響与える日焼け止めの流通禁止を発表</h2>
                             </div>
-                            <div class="text_content">
+                            <div class="text_content col-md-6">
                                 <h3 class="text_quote">
                                     2022年10月1日からマウイ郡ノンミネラルの日焼け止めの流通・販売禁止条例を施行マウイ郡の条例5306号により、2022年10月1日からマウイ島、ラナイ島、
                                 </h3>
@@ -512,8 +494,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="others">
-                    <div class="other">
+                <div class="others col-12 col-md-6 d-flex flex-wrap">
+                    <div class="other col-6 mb-3">
                         <a href="#" class="anchor">
                             <div class="icon">ハワイ州観光局</div>
                             <div class="img">
@@ -527,7 +509,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="other">
+                    <div class="other col-6 mb-3">
                         <a href="#" class="anchor">
                             <div class="icon">ハワイ州観光局</div>
                             <div class="img">
@@ -542,7 +524,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="other">
+                    <div class="other col-6 mb-3">
                         <a href="#" class="anchor">
                             <div class="icon">ハワイ州観光局</div>
                             <div class="img">
@@ -556,7 +538,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="other">
+                    <div class="other col-6 mb-3">
                         <a href="#" class="anchor">
                             <div class="icon">ハワイ州観光局</div>
                             <div class="img">
@@ -574,25 +556,27 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="title">
-                <div class="title_text">
+    </div>
+    <div class="container mb-3">
+        <div class="row">
+            <div class="title d-flex align-items-center">
+                <div class="title_text col-8 col-md-9">
                     <h1 lang="jp">コミュニティの取り組み</h1>
                     <span lang="en">Communitiy Initiatives</span>
                 </div>
-                <a href="#" class="anchor">すべて見る<img src="./icons/right_arrow_short.svg" alt="arrow"></a>
+                <a href="#" class="anchor col-4 col-md-3">すべて見る<img src="./icons/right_arrow_short.svg" alt="arrow"></a>
             </div>
-            <div class="post row">
-                <div class="highlight">
+            <div class="post">
+                <div class="highlight col-12 col-md-6">
                     <a href="#" class="anchor">
                         <div class="img">
                             <img src="./assets/asset04.jpg" alt="Zero Waste Oahu">
                         </div>
-                        <div class="text">
-                            <div class="text_title">
+                        <div class="text col-md-12">
+                            <div class="text_title col-md-6">
                                 <h2>Zero Waste Oahu (ゼロウェイストオアフ) の取り組み</h2>
                             </div>
-                            <div class="text_content">
+                            <div class="text_content col-md-6">
                                 <h3 class="text_quote">
                                     Zero Waste
                                     Oahuは現在の生産方法、購買システム、廃棄物管理システムに積極的に介入するシステムを通じて、バランスのとれた消費文化と廃棄物の少ない未来
@@ -602,8 +586,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="others">
-                    <div class="other">
+                <div class="others col-12 col-md-6 d-flex flex-wrap">
+                    <div class="other col-6 mb-3">
                         <a href="#" class="anchor">
                             <div class="icon fading">サスティナブル・コーストラインズ・ハワイ（Sustainable Coastlines Hawaii）</div>
                             <div class="img">
@@ -617,7 +601,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="other">
+                    <div class="other col-6 mb-3">
                         <a href="#" class="anchor">
                             <div class="icon"></div>
                             <div class="img">
@@ -632,7 +616,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="other">
+                    <div class="other col-6 mb-3">
                         <a href="#" class="anchor">
                             <div class="icon fading">アウトリガー・ホテルズ＆リゾーツ</div>
                             <div class="img">
@@ -646,7 +630,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="other">
+                    <div class="other col-6 mb-3">
                         <a href="#" class="anchor">
                             <div class="icon fading">クプ・ハワイ（KUPU Hawaii）</div>
                             <div class="img">
@@ -664,7 +648,9 @@
             </div>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
