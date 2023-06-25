@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .guess-board {
+        text-align: center;
+        margin-top: 20px;
+        line-height: 30px;
+    }
+</style>
+
+<body>
+    <div class="guess-board">
+        <h1>Guess number</h1>
+        <div class="hint"></div>
+        <div class="input">
+            <label for="guess_num">
+                <input type="text" id="guess_num" placeholder="Please input a number">
+            </label>
+        </div>
+        <div class="btn-group">
+            <button id="guess_btn">Guess</button>
+            <button id="restart_btn">Restart</button>
+            <button id="see_ans_btn">Peek</button>
+        </div>
+    </div>
+    <script src="guess_number.js"></script>
+</body>
+
+</html>
