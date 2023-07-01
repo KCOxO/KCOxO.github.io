@@ -12,16 +12,36 @@
         margin: auto;
         text-align: center;
     }
+
+    .guess-board h1 {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .guess-board .record {
+        margin: 10px auto;
+        width: 300px;
+        height: 200px;
+        border: 1px dotted black;
+        overflow-y: auto;
+    }
+
+    .guess-board .record p {
+        padding-right: 10px;
+    }
 </style>
 
 <body>
     <div class="guess-board">
+        <h1>1A2B</h1>
         <div class="btn-group">
             <button id="start_btn">開始</button>
             <button id="restart_btn">放棄重來</button>
             <button id="peek_btn">看答案</button>
         </div>
-        <div class="record"></div>
+        <div class="record">
+            <p></p>
+        </div>
         <div class="input">
             <label for="guess_input">
                 <input type="text" id="guess_input">
@@ -39,7 +59,7 @@
     const startBtn = document.getElementById('start_btn')
     const restartBtn = document.getElementById('restart_btn')
     const peekBtn = document.getElementById('peek_btn')
-    const record = document.querySelector('.record')
+    const recordp = document.querySelector('p')
     // 產生四個不重複亂數
 
 
@@ -57,6 +77,7 @@
     restartBtn.addEventListener("click", function () {
         alert(`答案是 ${emoji} ${ans.join('')}`);
         guessInput.value = '';
+        recordp.innerHTML = '';
         ans = [];
         disableBtn();
         numGenerator();
@@ -86,18 +107,26 @@
         } else {
             let countA = 0, countB = 0;
             for (i = 0; i < guessNum.length; i++) {
-                if (guessNum[i] === ans[i]) {
+                if (guessNum[i] === guessNum[i + 1]) {
+                    alert('請輸入不重複的四個數字')
+                    guessInput.value = '';
+                    return;
+                } else if (guessNum[i] === ans[i]) {
                     countA++;
                 } else if (ans.includes(guessNum[i])) {
                     countB++;
                 }
             }
             if (countA === 4) {
+                recordp.innerHTML += `${guessNum.join('')}　${countA}A`
                 alert(`恭喜答對${emoji1}`);
                 guessInput.value = '';
+                recordp.innerHTML = '';
+                disableBtn();
             } else {
-                record.innerHTML += `${countA}A${countB}B<br>`
+                recordp.innerHTML += `${guessNum.join('')}　${countA}A${countB}B<br>`
             }
+            guessInput.value = '';
         }
     };
 
