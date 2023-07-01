@@ -84,7 +84,7 @@
     });
 
     peekBtn.addEventListener("click", function () {
-        alert(`答案是 ${emoji} ${ans.join('')}`);
+        recordp.innerHTML += `-------答案是 ${ans.join('')}-------<br>`
     });
 
     guessBtn.addEventListener("click", guess);
