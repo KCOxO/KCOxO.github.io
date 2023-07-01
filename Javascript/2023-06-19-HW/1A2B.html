@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+</head>
+<style>
+    .guess-board {
+        margin: auto;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="guess-board">
+        <div class="btn-group">
+            <button id="start_btn">開始</button>
+            <button id="restart_btn">放棄重來</button>
+            <button id="peek_btn">看答案</button>
+        </div>
+        <div class="record"></div>
+        <div class="input">
+            <label for="guess_input">
+                <input type="text" id="guess_input">
+                <button id="guess_btn">猜！</button>
+            </label>
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+    const guessInput = document.getElementById('guess_input')
+    const guessBtn = document.getElementById('guess_btn')
+    const startBtn = document.getElementById('start_btn')
+    const restartBtn = document.getElementById('restart_btn')
+    const peekBtn = document.getElementById('peek_btn')
+    const record = document.querySelector('.record')
+    // 產生四個不重複亂數
+
+
+    let randomNum, guessNum;
+    let ans = [];
+    let guessInt = [];
+    let emoji = '🫣';
+    let emoji1 = '🎉🎉🎉';
+
+
+    startBtn.addEventListener("click", function () {
+        ableBtn();
+    });
+
+    restartBtn.addEventListener("click", function () {
+        alert(`答案是 ${emoji} ${ans.join('')}`);
+        guessInput.value = '';
+        ans = [];
+        disableBtn();
+        numGenerator();
+    });
+
+    peekBtn.addEventListener("click", function () {
+        alert(`答案是 ${emoji} ${ans.join('')}`);
+    });
+
+    guessBtn.addEventListener("click", guess);
+
+    window.onload = function () {
+        disableBtn();
+        numGenerator();
+
+    }
+
+    function guess(event) {
+        // 判斷是否輸入四個數字
+        const inputNum = guessInput.value.trim();
+        // 將輸入字串轉成數字陣列
+        guessNum = inputNum.split('').map(Number);
+        if (inputNum === '' || isNaN(inputNum) || inputNum.length < 4 || inputNum.length > 4) {
+            alert('請輸入四個數字');
+            guessInput.value = '';
+            return;
+        } else {
+            let countA = 0, countB = 0;
+            for (i = 0; i < guessNum.length; i++) {
+                if (guessNum[i] === ans[i]) {
+                    countA++;
+                } else if (ans.includes(guessNum[i])) {
+                    countB++;
+                }
+            }
+            if (countA === 4) {
+                alert(`恭喜答對${emoji1}`);
+                guessInput.value = '';
+            } else {
+                record.innerHTML += `${countA}A${countB}B<br>`
+            }
+        }
+    };
+
+    // 產出四個不重複且小於10的數字
+    function numGenerator() {
+        while (ans.length < 4) {
+            randomNum = Math.floor(Math.random() * 10);
+            if (!ans.includes(randomNum)) {
+                ans.push(randomNum);
+            };
+        };
+    };
+
+    // 關閉按鈕
+    function disableBtn() {
+        guessBtn.disabled = true;
+        restartBtn.disabled = true;
+        peekBtn.disabled = true;
+    };
+
+    // 打開按鈕
+    function ableBtn() {
+        guessBtn.disabled = false;
+        restartBtn.disabled = false;
+        peekBtn.disabled = false;
+    };
+</script>
+
+</html>
