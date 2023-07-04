@@ -71,6 +71,7 @@
 
 
     startBtn.addEventListener("click", function () {
+        recordp.innerHTML = '';
         ableBtn();
     });
 
@@ -118,10 +119,9 @@
                 }
             }
             if (countA === 4) {
-                recordp.innerHTML += `${guessNum.join('')}　${countA}A`
+                recordp.innerHTML += `${guessNum.join('')}　${countA}A${countB}B<br>`
                 alert(`恭喜答對${emoji1}`);
                 guessInput.value = '';
-                recordp.innerHTML = '';
                 disableBtn();
             } else {
                 recordp.innerHTML += `${guessNum.join('')}　${countA}A${countB}B<br>`
