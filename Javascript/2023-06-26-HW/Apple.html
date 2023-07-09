@@ -69,6 +69,8 @@
             width: 150px;
         }
 
+
+
         .capacityselect label span {
             font-size: 14px;
             font-weight: bold;
@@ -87,6 +89,10 @@
         .networkselect .price {
             font-size: 12px;
         }
+
+        input[type="radio"]:checked+label {
+            border-color: rgb(32, 100, 235) !important
+        }
     </style>
 </head>
 
@@ -100,7 +106,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+                <div class="navbar-nav ">
                     <a class="nav-link ipad" aria-current="page" href="#">iPad</a>
                     <a class="nav-link iphone" href="#">iPhone</a>
                     <a class="nav-link watch" href="#">Watch</a>
@@ -164,9 +170,10 @@
                             <div class="color col-12">
                                 <div class="row">
                                     <div class="colorselect col-6 pb-3">
-                                        <input type="radio" name="color" id="spblack" style="display: none;">
+                                        <input type="radio" name="color" id="spblack" style="display: none">
                                         <label for="spblack"
-                                            class="border border-dark-subtle border-1 rounded-3 text-center pt-3">
+                                            class="border border-dark-subtle border-1 rounded-3 text-center pt-3"
+                                            role="button">
                                             <img src="./ipadAir/ipadAir_color/gray.png" alt="">
                                             <span class="d-block">太空灰色</span>
                                         </label>
@@ -174,7 +181,8 @@
                                     <div class="colorselect col-6 pb-3">
                                         <input type="radio" name="color" id="blue" style="display:none">
                                         <label for="blue"
-                                            class="border border-dark-subtle border-1 rounded-3 text-center pt-3">
+                                            class="border border-dark-subtle border-1 rounded-3 text-center pt-3"
+                                            role="button">
                                             <img src="./ipadAir/ipadAir_color/blue.png" alt="">
                                             <span class="d-block">藍色</span>
                                         </label>
@@ -182,7 +190,8 @@
                                     <div class="colorselect col-6 pb-3">
                                         <input type="radio" name="color" id="pink" style="display:none">
                                         <label for="pink"
-                                            class="border border-dark-subtle border-1 rounded-3 text-center pt-3">
+                                            class="border border-dark-subtle border-1 rounded-3 text-center pt-3"
+                                            role="button">
                                             <img src="./ipadAir/ipadAir_color/pink.png" alt="">
                                             <span class="d-block">粉紅色</span>
                                         </label>
@@ -190,7 +199,8 @@
                                     <div class="colorselect col-6 pb-3">
                                         <input type="radio" name="color" id="purple" style="display:none">
                                         <label for="purple"
-                                            class="border border-dark-subtle border-1 rounded-3 text-center pt-3">
+                                            class="border border-dark-subtle border-1 rounded-3 text-center pt-3"
+                                            role="button">
                                             <img src="./ipadAir/ipadAir_color/purple.png" alt="">
                                             <span class="d-block">紫色</span>
                                         </label>
@@ -198,7 +208,8 @@
                                     <div class="colorselect col-6">
                                         <input type="radio" name="color" id="startlight" style="display:none">
                                         <label for="startlight"
-                                            class="border border-dark-subtle border-1 rounded-3 text-center pt-3">
+                                            class="border border-dark-subtle border-1 rounded-3 text-center pt-3"
+                                            role="button">
                                             <img src="./ipadAir/ipadAir_color/starlight.png" alt="">
                                             <span class="d-block">星光色</span>
                                         </label>
@@ -215,9 +226,10 @@
                             <div class="capacity">
                                 <div class="row justify-content-between">
                                     <div class="capacityselect col-6">
-                                        <input type="radio" name="color" id="smGB" style="display:none">
+                                        <input type="radio" name="gb" id="smGB" style="display:none">
                                         <label for="smGB"
-                                            class="border border-dark-subtle border-1 rounded-3 text-center py-3">
+                                            class="border border-dark-subtle border-1 rounded-3 text-center py-3"
+                                            role="button">
                                             <span>64GB</span>
                                             <div class="price">
                                                 <span class="d-block">NT19,900起</span>
@@ -225,9 +237,10 @@
                                         </label>
                                     </div>
                                     <div class="capacityselect col-6">
-                                        <input type="radio" name="color" id="lgGB" style="display:none">
+                                        <input type="radio" name="gb" id="lgGB" style="display:none">
                                         <label for="lgGB"
-                                            class="border border-dark-subtle border-1 rounded-3 text-center py-3">
+                                            class="border border-dark-subtle border-1 rounded-3 text-center py-3"
+                                            role="button">
                                             <span class="d-block">256GB</span>
                                             <div class="price">
                                                 <span>NT24,900起</span>
@@ -249,9 +262,10 @@
                             </div>
                             <div class="network">
                                 <div class="networkselect">
-                                    <input type="radio" name="color" id="wifi" style="display:none">
+                                    <input type="radio" name="wifi" id="wifi" style="display:none">
                                     <label for="wifi"
-                                        class="wifi col-12 border border-dark-subtle border-1 rounded-3 p-3 d-flex align-items-center">
+                                        class="wifi col-12 border border-dark-subtle border-1 rounded-3 p-3 d-flex align-items-center"
+                                        role="button">
                                         <div class="text col-6">
                                             <span>Wi-Fi</span>
                                             <span class="d-block">每部 iPad 都可連接到 Wi-Fi 網路，使你能保持連線。</span>
@@ -262,9 +276,10 @@
                                     </label>
                                 </div>
                                 <div class="networkselect">
-                                    <input type="radio" name="color" id="cellular" style="display:none">
+                                    <input type="radio" name="wifi" id="cellular" style="display:none">
                                     <label for="cellular"
-                                        class="cellular col-12 border border-dark-subtle border-1 rounded-3 p-3 d-flex align-items-center">
+                                        class="cellular col-12 border border-dark-subtle border-1 rounded-3 p-3 d-flex align-items-center"
+                                        role="button">
                                         <div class="text col-6">
                                             <span>Wi-Fi+行動網路</span>
                                             <span class="d-block">Wi-Fi + 行動網路機型讓你在無法使用 Wi-Fi 時也能進行連線。</span>
@@ -332,32 +347,62 @@
         const iphoneBtn = document.querySelector(".iphone")
         const watchBtn = document.querySelector(".watch")
 
-        let ipadGray = [], ipadBlue = [], ipadPink = [], ipadPurple = [], ipadStarlight = [];
+        // 選到顏色
+        const ipadColor = document.querySelectorAll('input[name="color"]+label')
+        const ipadCapacity = document.querySelectorAll('input[name="gb"]+label')
+        const ipadNetwork = document.querySelector('input[name="wifi"]+label')
+        const ipadPrice = document.querySelector('demoprice')
+        const ipadh1Price = document.querySelector('.header .title span')
 
+        let ipadGray = [], ipadBlue = [], ipadPink = [], ipadPurple = [], ipadLight = [];
+        let grayData, blueData, pinkData, purpleData, lightData;
+
+        ipadCapacity.forEach((capacity) => {
+            capacity.addEventListener('click', change);
+        });
+
+        ipadColor.forEach((color) => {
+            color.addEventListener('click', change)
+        })
 
         window.onload = function () {
 
-            fetch(ipadUrl)
-                .then((resp) => resp.json())
-                .then((result) => {
-                    console.log(result);
-                })
-                .catch((err) => {
-                    console.log('fetch catch:');
-                    console.log(err);
-                });
 
         }
 
+        fetch(ipadUrl)
+            .then((resp) => resp.json())
+            .then((result) => {
+                // 取出gray的物件
+                grayData = result.find(data => data.color === 'gray')
+                // 取gray.data物件
+                ipadGray = grayData.data.map(data => data);
+
+                blueData = result.find(data => data.color === 'blue')
+                ipadBlue = blueData.data.map(data => data);
+
+                pinkData = result.find(data => data.color === 'pink')
+                ipadPink = pinkData.data.map(data => data);
+
+                purpleData = result.find(data => data.color === 'purple')
+                ipadPurple = purpleData.data.map(data => data);
+
+                lightData = result.find(data => data.color === 'startlight')
+                ipadLight = lightData.data.map(data => data);
+                console.log(ipadLight)
+            })
+            .catch((err) => {
+                console.log('fetch catch:');
+                console.log(err);
+            });
+
+        function changePrice() {
+            const selectedCapacity = document.querySelector('input[name="gb"]+label:checked')
+            const selectedColor = document.querySelector('input[name="color"]+label:checked')
+            const ipadNetwork = document.querySelector('input[name="wifi"]+label:checked')
+        }
 
 
-
-
-
-        // 資料結構依照切版的資訊分
-        // color一個
-        // capacity一個？
-        // wifi一個
 
 
     </script>
