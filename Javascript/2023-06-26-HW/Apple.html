@@ -334,14 +334,17 @@
 
         let ipadGray = [], ipadBlue = [], ipadPink = [], ipadPurple = [], ipadStarlight = [];
 
+
         window.onload = function () {
+
             fetch(ipadUrl)
-                .then(resp => resp.json())
-                .then(result => {
-                    console.log(result)
+                .then((resp) => resp.json())
+                .then((result) => {
+                    console.log(result);
                 })
-                .catch(ex => {
-                    console.log(ex);
+                .catch((err) => {
+                    console.log('fetch catch:');
+                    console.log(err);
                 });
 
         }
