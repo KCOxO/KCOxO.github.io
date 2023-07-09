@@ -14,11 +14,9 @@
             {"color": "藍色", "price": "24900", "storage": "256GB", "capacity": "Wi-Fi", "image": "ipadAir_blue1" },
             {"color": "藍色", "price": "29900", "storage": "256GB", "capacity": "Wi-Fi+行動網路", "image": "ipadAir_blue1" },
         ]
-
     },
     {
-        "pink":
-        [
+        "pink":[
             {"color": "粉紅色", "price": "19900", "storage": "64GB", "capacity": "Wi-Fi", "image": "ipadAir_pink1" },
             {"color": "粉紅色", "price": "24900", "storage": "64GB", "capacity": "Wi-Fi+行動網路", "image": "ipadAir_pink1" },
             {"color": "粉紅色", "price": "24900", "storage": "256GB", "capacity": "Wi-Fi", "image": "ipadAir_pink1" },

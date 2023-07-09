@@ -338,11 +338,11 @@
             fetch(ipadUrl)
                 .then(resp => resp.json())
                 .then(result => {
-              
-
-
-
+                    console.log(result)
                 })
+                .catch(ex => {
+                    console.log(ex);
+                });
 
         }
 
