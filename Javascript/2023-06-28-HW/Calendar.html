@@ -7,6 +7,8 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+    </style>
 </head>
 
 <body>
@@ -58,7 +60,7 @@
                                 aria-describedby="add_addon2">
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text">標題</span>
+                            <span class="input-group-text">內容</span>
                             <input id="add_addon3" type="text" class="form-control" placeholder="" aria-label=""
                                 aria-describedby="add_addon3">
                         </div>
@@ -95,7 +97,7 @@
                                 aria-describedby="edit_addon2">
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text">標題</span>
+                            <span class="input-group-text">內容</span>
                             <input id="edit_addon3" type="text" class="form-control" placeholder="" aria-label=""
                                 aria-describedby="edit_addon3">
                         </div>
@@ -105,7 +107,6 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
                         <button type="button" class="btn btn-success" id="edit_re">修改</button>
                         <button type="button" class="btn btn-danger" id="edit_de">刪除</button>
-
                     </div>
                 </div>
             </div>
@@ -198,26 +199,60 @@
             setLocalStorage(key, dataArray)
             // 設定完關掉modal
             myModaladd.hide();
+            renderDate();
         })
         edit_re.addEventListener("click", function () {
+            // 取到的值join成字串
+            let editDate = edit_on1.value.split('-').join('')
+            let editTitle = edit_on2.value
+            let editContent = edit_on3.value
+
+            console.log(editDate)
+            console.log(editTitle)
+            console.log(editContent)
+
+            //取得修改的index
+            let index = edit_on1.getAttribute('data-index')
+            console.log(index)
+            // 取得localStorage的資料
+            let data = getLocalStorage(editDate)
+            console.log(data)
+
+
+            // 資料放到行程內=把行程塞進物件
+            let obj = {
+                title: editTitle,
+                content: editContent
+            }
+            // console.log(obj)
+
+            // 更新資料
+            data[index] = obj
+            console.log(obj)
+            // key = ediDate, value = data
+            setLocalStorage(editDate, data)
+            myModaledit.hide()
+            renderDate()
 
         })
         edit_de.addEventListener("click", function () {
 
+            // 刪除日期
+            let editDate = edit_on1.value.split('-').join('')
+            // 刪除哪一筆
+            let index = edit_on1.getAttribute('data-index')
+            console.log(index)
+            //取得localStorage資料
+            let data = getLocalStorage(editDate)
+
+            // 刪除資料，刪除該筆index的第一個值
+            data.splice(index, 1)
+            // key = editDate, value = data
+            setLocalStorage(editDate, data)
+            myModaledit.hide();
+            renderDate();
+
         })
-
-
-
-
-        // const add_on1 = document.getElementById('add_addon1')
-        // const add_on2 = document.getElementById('add_addon2')
-        // const add_on3 = document.getElementById('add_addon3')
-
-
-        // const edit_on1 = document.getElementById('edit_addon1')
-        // const edit_on2 = document.getElementById('edit_addon2')
-        // const edit_on3 = document.getElementById('edit_addon3')
-
 
 
         window.onload = function () {
@@ -226,7 +261,9 @@
 
         // 渲染/動態生成
         function renderDate() {
+
             tbodyDOM.innerHTML = '';
+            let day = 1
             yearMonthDOM.innerText = `${year}年 ${month + 1}月`
 
             // 第一天是星期 N ， 8/1 = 7/1
@@ -242,7 +279,7 @@
             // 這個月有幾個禮拜，無條件進位
             let weeks = Math.ceil(allDays / 7)
 
-            let day = 1
+
             //tr =>有6個禮拜 = 建6列
             for (let i = 0; i < weeks; i++) {
                 let trDOM = document.createElement('tr')
@@ -260,6 +297,41 @@
                         if (day <= dateOfMonth) {
 
                             tdDOM.innerText = day;
+                            // 查詢日期是否有行程
+                            let key = `${year}${month + 1}${day}`
+                            // console.log('key:' + key)
+                            let data = getLocalStorage(key)
+                            // console.log(data)
+
+                            if (data != null) {
+                                // 印出我的代辦事項
+                                let ulDON = document.createElement('ul')
+                                data.forEach((item, index) => {
+                                    let liDOM = document.createElement('li')
+                                    liDOM.innerText = item.title
+
+                                    let editday = day
+                                    // 行程要放到li內時，做事件綁定，綁定時會開啟Modal
+                                    liDOM.addEventListener('click', function (e) {
+                                        myModaledit.show()
+
+                                        let editDate = `${year}-${month + 1}-${editday}`
+                                        console.log('editdate:' + editDate)
+                                        // 將localStorage塞到Modal欄位內
+                                        edit_on1.value = editDate
+                                        edit_on2.value = item.title
+                                        edit_on3.value = item.content
+                                        // 自定義屬性，data.forEach接index
+                                        edit_on1.setAttribute('data-index', index)
+                                        console.log(index)
+
+                                        e.stopPropagation()
+                                    })
+
+                                    ulDON.append(liDOM)
+                                });
+                                tdDOM.append(ulDON)
+                            }
                             tdDOM.addEventListener('click', tdClickFn.bind(null, year, month, day));
                             day++
                         } else {
@@ -278,7 +350,8 @@
             add_on1.value = `${year}-${month + 1}-${day}`
             myModaladd.show();
             // 標題內容寫入localStorage
-
+            add_on2.value = '';
+            add_on3.value = '';
 
         }
 
@@ -286,26 +359,15 @@
 
         // 取得localStorage
         function getLocalStorage(key) {
-            // 取回的字串轉為JSON[{},{}]
+            // 取回的字串轉為JSON陣列或物件
             let data = JSON.parse(localStorage.getItem(key))
             return data
         }
 
         function setLocalStorage(key, value) {
-            //取到的JSON資料轉為字串
+            //取到的JSON陣列、物件轉為字串
             localStorage.setItem(key, JSON.stringify(value));
         }
-
-        // const add_on1 = document.getElementById('add_addon1')
-        // const add_on2 = document.getElementById('add_addon2')
-        // const add_on3 = document.getElementById('add_addon3')
-        // const add_S = document.getElementById('add_addS')
-
-        // const edit_on1 = document.getElementById('edit_addon1')
-        // const edit_on2 = document.getElementById('edit_addon2')
-        // const edit_on3 = document.getElementById('edit_addon3')
-        // const edit_re = document.getElementById('edit_re')
-        // const edit_de = document.getElementById('edit_de')
 
     </script>
 </body>
