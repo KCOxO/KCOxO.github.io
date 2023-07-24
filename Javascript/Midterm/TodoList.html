@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <h1>Memo</h1>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="todo ..." aria-label="todo" id="add_input">
+                <button class="btn btn-outline-primary" type="button" for="add_input" id="add_btn">新增</button>
+            </div>
+            <ul class="list-group" id="ulDOM">
+                <!-- 動態生成待辦事項 -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        const input = document.getElementById('add_input');
+        const add_btn = document.getElementById('add_btn');
+        const ulDOM = document.getElementById('ulDOM');
+        let key;
+
+
+        // 新增localStorage
+        add_btn.addEventListener("click", addTODO);
+
+        //新增內容
+        function addTODO() {
+            //取得input.value值
+            const inputValue = input.value.trim();
+            //values = input值
+            if (inputValue !== "") {
+                let obj = {
+                    content: inputValue
+                };
+                //取得localstorage values原有資料，繼續加到dataArray
+                let dataArray = getLocalStorage();
+                if (!dataArray) {
+                    //沒有值的話，就放陣列(一開始沒有值)
+                    dataArray = [];
+                }
+
+                //將values新增到dataArray
+                dataArray.push(obj);
+
+                //將key, obj存入localstorage
+                setLocalStorage(key, dataArray);
+                //重新渲染
+                renderTODO();
+                //清除輸入欄
+                input.value = "";
+            }
+        }
+
+        window.onload = function () {
+            //用key當值，確認localstorage key是否有數字
+            key = parseInt(localStorage.getItem('key'));
+            //第一次顯示NAN
+            if (isNaN(key) || key === null) {
+                key = 0;
+            }
+
+            //數字遞增
+            key++;
+
+            //key轉回字串存localstorage
+            localStorage.setItem('key', key.toString());
+
+            renderTODO();
+        }
+
+        // 渲染待辦事項
+        function renderTODO() {
+            //清空ULDOM
+            ulDOM.innerHTML = '';
+            //取得localstorage資料
+            let data = getLocalStorage(key);
+            //渲染表格內容，btn加上自訂屬性，方便後續查詢btn
+            if (data) {
+                data.forEach((item, index) => {
+                    ulDOM.innerHTML += `
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div class="input-list">
+                            <input class="form-check-input me-1 inputbox" type="checkbox" value="" id="show_checkbox">
+                            <span>${item.content}</span>
+                        </div>
+                        <div class="btn-list">
+                            <button class="btn btn-warning me-1 editbtn" type="button" data-index="${index}">編輯</button>
+                            <button class="btn btn-danger deletebtn" type="button" data-index="${index}">刪除</button>
+                        </div>
+                    </li>`;
+                });
+
+                //選到動態渲染的edit、delete按鈕
+                const editBtns = document.querySelectorAll('.editbtn');
+                const deleteBtns = document.querySelectorAll('.deletebtn');
+
+                //forEach後執行click事件
+                editBtns.forEach(editBtn => {
+                    editBtn.addEventListener('click', editTODO);
+                });
+
+                deleteBtns.forEach(deleteBtn => {
+                    deleteBtn.addEventListener('click', deleteTODO);
+                });
+            }
+        }
+
+        //修改內容
+        function editTODO(event) {
+            //取得資料索引(字串)，event.target=點選到的editbtn
+            const index = event.target.getAttribute('data-index')
+            //取得localstorage資料
+            const data = getLocalStorage(key);
+            //取得該筆索引values，index=轉為數字1
+            const obj = data[index];
+            //選到editbtn
+            const editBtn = event.target;
+            //找到離editbtn最近的li
+            const li = editBtn.closest('li');
+            //找到span
+            const span = li.querySelector('span');
+
+            //編輯span字和顏色
+            if (editBtn.innerText === "編輯") {
+                editBtn.innerText = "保存";
+                editBtn.classList.remove('btn-warning');
+                editBtn.classList.add('btn-success');
+                span.contentEditable = "true";
+
+            } else {
+                editBtn.innerText = "編輯";
+                editBtn.classList.remove('btn-success');
+                editBtn.classList.add('btn-warning');
+                span.contentEditable = "false";
+                //修改span內的字=values
+                obj.content = span.innerText;
+                //更變存入localstorage
+                setLocalStorage(key, data);
+            }
+        }
+
+        //刪除資料
+        function deleteTODO(event) {
+            //取得資料索引(字串)，event.target=點選到的deletebtn
+            const index = event.target.getAttribute('data-index')
+            //取得localstorage資料
+            const data = getLocalStorage(key)
+            // 刪除該筆資料
+            data.splice(index, 1)
+            //更變存入localstorage
+            setLocalStorage(key, data);
+            // 如果key的所有values都被刪除了，刪除key
+            if (data.length === 0) {
+                localStorage.removeItem(key.toString())
+            }
+            // 重新渲染 TODOLIST
+            renderTODO();
+        }
+
+        //parse成字串，再存入
+        function setLocalStorage(key, value) {
+            localStorage.setItem(key.toString(), JSON.stringify(value));
+        }
+
+        // 取得localStorage
+        function getLocalStorage(key) {
+            let data = JSON.parse(localStorage.getItem(key));
+            return data;
+        }
+
+
+    </script>
+</body>
+
+</html>

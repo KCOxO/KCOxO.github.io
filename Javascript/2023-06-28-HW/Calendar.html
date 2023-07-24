@@ -178,7 +178,7 @@
             renderDate();
         })
 
-
+        //新增按鈕
         add_S.addEventListener("click", function () {
             // 取日期當key
             let key = (add_on1.value).split('-').join('')
@@ -195,12 +195,15 @@
                 dataArray = data
                 dataArray.push(obj)
             }
+            console.log(dataArray)
 
             setLocalStorage(key, dataArray)
             // 設定完關掉modal
             myModaladd.hide();
             renderDate();
         })
+
+        //修改按鈕
         edit_re.addEventListener("click", function () {
             // 取到的值join成字串
             let editDate = edit_on1.value.split('-').join('')
@@ -235,6 +238,8 @@
             renderDate()
 
         })
+
+        //刪除按鈕
         edit_de.addEventListener("click", function () {
 
             // 刪除日期
@@ -262,6 +267,7 @@
         // 渲染/動態生成
         function renderDate() {
 
+            //清空tbody
             tbodyDOM.innerHTML = '';
             let day = 1
             yearMonthDOM.innerText = `${year}年 ${month + 1}月`
