@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<style>
+  img {
+    vertical-align: middle;
+  }
+
+  .logo>img {
+    width: 150px;
+  }
+
+  .brand-image img {
+    height: 400px;
+  }
+
+
+  .meal-picture picture>img {
+    width: 100%;
+    aspect-ratio: 3/2;
+  }
+
+  .footer {
+    font-size: 12px;
+  }
+
+  .desktop {
+    visibility: hidden;
+    display: none;
+  }
+
+  @media screen and (min-width:768px) {}
+
+  @media screen and (min-width:1024px) {
+    .mobile {
+      visibility: hidden;
+      display: none;
+    }
+
+
+    .desktop {
+      visibility: visible;
+      display: inline-block;
+    }
+
+    .logo>img {
+      width: 150px;
+    }
+
+    .brand-image img {
+      height: 400px;
+    }
+
+    .internal-link>div {
+      height: 20px;
+      font-size: 13px;
+    }
+
+    .precautions .list-group-numbered>li {
+      margin-left: -12px;
+    }
+
+
+  }
+
+  @media screen and (min-width:1200px) {
+    .mobile {
+      visibility: hidden;
+      display: none;
+    }
+
+    .desktop {
+      visibility: visible;
+      display: inline-block;
+    }
+
+  }
+</style>
+
+<body>
+  <div class=" takeout-wrapper">
+    <!-- header -->
+    <header class="header">
+      <!-- header-link電腦版站內連結區 -->
+      <nav class="desktop internal-link navbar navbar-expand-lg bg-body-tertiary d-block">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">商務版</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  行動版
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">iOS應用程式</a></li>
+                  <li><a class="dropdown-item" href="#">Andriod應用程式</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">常見問答</a>
+              </li>
+              <!-- 有bug -->
+              <li class="nav-item dropdown ms-5 me-4">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  ZH
+                </a>
+                <ul class="dropdown-menu dropdown-menu-start">
+                  <li><a class="dropdown-item" href="#">Deutsch</a></li>
+                  <li><a class="dropdown-item" href="#">English</a></li>
+                  <li><a class="dropdown-item" href="#">Español</a></li>
+                  <li><a class="dropdown-item" href="#">Italiano</a></li>
+                  <li><a class="dropdown-item" href="#">Nerderlands</a></li>
+                  <li><a class="dropdown-item" href="#">中文</a></li>
+                  <li><a class="dropdown-item" href="#">日本語</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- header-link手機板版站內連結區 -->
+      <div class="mobile brand-logo d-flex justify-content-between align-items-center ">
+        <div class="mobile logo-location align-items-center">
+          <a class="mobile logo ms-4" href="#">
+            <img class="mobile align-middle" src="./LOGO.png" alt="Openable logo">
+          </a>
+        </div>
+        <div class="mobile login-search d-flex align-items-center">
+          <a type="button" class="mobile material-symbols-outlined text-decoration-none text-black ms-4"
+            href="#">search</a>
+          <nav class="mobile internal-link navbar navbar-expand-sm justify-content-end">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="mobile collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">登入</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      語言
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-start dropdown-menu-right">
+                      <li><a class="dropdown-item" href="#">Deutsch</a></li>
+                      <li><a class="dropdown-item" href="#">English</a></li>
+                      <li><a class="dropdown-item" href="#">Español</a></li>
+                      <li><a class="dropdown-item" href="#">Italiano</a></li>
+                      <li><a class="dropdown-item" href="#">Nerderlands</a></li>
+                      <li><a class="dropdown-item" href="#">中文</a></li>
+                      <li><a class="dropdown-item" href="#">日本語</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">常見問答</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">商務版</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <!-- header-LOGO區 -->
+      <div class="desktop brand-logo d-flex justify-content-between mt-2 pb-1 border-bottom ">
+        <div class="desktop logo-location d-flex">
+          <a class="desktop logo ms-4" href="#">
+            <img class="desktop" src="./LOGO.png" alt="Openable logo">
+          </a>
+          <div class="desktop location dropdown ms-2">
+            <button class="desktop btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="desktop material-symbols-outlined align-middle d-inline">location_on</span> <span>台北市</span>
+            </button>
+            <ul class=" dropdown-menu ">
+              <li><a class="desktop dropdown-item" href="#">北台灣</a></li>
+              <li><a class="desktop dropdown-item" href="#">中台灣</a></li>
+              <li><a class="desktop dropdown-item" href="#">南臺灣</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="desktop login-search d-flex justify-content-end align-items-center me-5">
+          <button type="button" class="desktop login btn btn-primary">登入</button>
+          <a type="button" class="desktop material-symbols-outlined text-decoration-none text-black ms-4"
+            href="#">search</a>
+        </div>
+      </div>
+      <!-- header-branch連鎖分店 -->
+      <nav
+        style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+        class="branch mt-3 border-bottom" aria-label="breadcrumb">
+        <ol class="breadcrumb ms-4">
+          <li class="breadcrumb-item "><a class="text-decoration-none text-secondary" href="#">金色三麥</a></li>
+          <li class="breadcrumb-item text-secondary" aria-current="page">勤美店</li>
+        </ol>
+      </nav>
+    </header>
+    <!-- main -->
+    <main class="mainly container">
+      <div class="row">
+        <!-- banner -->
+        <div class="brand-image mt-5 mb-5">
+          <img class="w-100 object-fit-cover" src="./banner.jpg" alt="">
+        </div>
+        <!-- 商家資訊 -->
+        <section class="title-area mb-3">
+          <div class="store-info">
+            <h1>金色三麥 勤美店</h1>
+            <span>台中市西區公益路68號B1</span>
+          </div>
+          <div class="store-contact mt-1">
+            <span class="material-symbols-outlined align-middle">call</span>
+            <a class=" text-decoration-none text-danger align-middle " href="tel:04-17981798">04-17981798</a>
+          </div>
+        </section>
+        <!-- 預定須知 -->
+        <section class="announcement mb-5">
+          <div class="fadenbook">
+            <p class="lh-lg">
+              食品業者登錄字號：B-666666666-66666-6<br>
+              豬肉原產地：丹麥/荷蘭/加拿大/台灣/西班牙<br>
+              牛肉原產地：美國/台灣/澳洲<br>
+              是否開立統一發票：是</p>
+          </div>
+          <div class="precautions">
+            <span class="fs-3 fw-bold">外帶注意事項</span>
+            <ol class="list-group list-group-numbered p-0">
+              <li class="list-group-item border-0">餐點均為現做，將視您所訂購的餐點數量調整取餐時間</li>
+              <li class="list-group-item border-0">立即訂購視現場出餐狀況，將以簡訊回覆正確取餐時間</li>
+              <li class="list-group-item border-0">當日指定時間訂購請選擇下拉式時間選單，並將以簡訊回覆正確取餐時間</li>
+              <li class="list-group-item border-0">憑訂單編號，前往金色三麥取餐</li>
+              <li class="list-group-item border-0">會員若需累積點數，請於備註欄填寫編號，若無填寫者恕不補登點數。</li>
+            </ol>
+          </div>
+          <div class="fyi mt-2">
+            <p>*本店使用國產豬肉、加拿大產豬肉、荷蘭產豬肉</p>
+            <p class="mb-5">★金色三麥保有服務最終解釋及說明權利，線上外帶優惠活動不併用</p>
+            <img class="m-auto w-100" src="./beers.jpg" alt="">
+          </div>
+        </section>
+        <!-- 電腦版菜品導覽區 -->
+        <nav class="desktop category-navbar sticky-top mb-3 bg-white">
+          <ul class="nav nav nav-underline nav-fill ">
+            <li class="nav-item ">
+              <a class="nav-link link-danger" aria-current="page" href="#first">優惠專區</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link link-danger" href="#second">主廚推薦</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link link-danger" href="#">沙拉開胃菜</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-danger" href="#">麵類</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-danger" href="#">披薩類</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link link-danger" href="#">鍋湯類</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link link-danger" href="#">飯類</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-danger" href="#">酥炸類</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-danger" href="#">蔬食專區</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-danger" href="#">獨享專區</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-danger" href="#">飲料甜點</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link link-danger" href="#">冷凍食品</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- 手機板菜品導覽區 -->
+        <nav
+          class="mobile d-inline category-navbar sticky-top mb-3 bg-white d-flexscrollable-tabs scroll-menu text-nowrap overflow-x-auto overflow-hidden">
+          <ul class="mobile d-inline nav nav nav-underline nav-fill justify-content-evenly">
+            <li class="nav-item d-inline-block">
+              <a class="nav-link link-danger" aria-current="page" href="#first">優惠專區</a>
+            </li>
+            <li class="nav-item d-inline-block">
+              <a class="nav-link link-danger" href="#second">主廚推薦</a>
+            </li>
+            <li class="nav-item d-inline-block">
+              <a class="nav-link link-danger" href="#">沙拉開胃菜</a>
+            </li>
+            <li class="nav-item d-inline-block">
+              <a class="nav-link link-danger" href="#">麵類</a>
+            </li>
+            <li class="nav-item d-inline-block">
+              <a class="nav-link link-danger" href="#">披薩類</a>
+            </li>
+            <li class="nav-item d-inline-block">
+              <a class="nav-link link-danger" href="#">鍋湯類</a>
+            </li>
+            <li class="nav-item d-inline-block">
+              <a class="nav-link link-danger" href="#">飯類</a>
+            </li>
+            <li class="nav-item d-inline-block">
+              <a class="nav-link link-danger" href="#">酥炸類</a>
+            </li>
+            <li class="nav-item d-inline-block">
+              <a class="nav-link link-danger" href="#">蔬食專區</a>
+            </li>
+            <li class="nav-item d-inline-block">
+              <a class="nav-link link-danger" href="#">獨享專區</a>
+            </li>
+            <li class="nav-item d-inline-block">
+              <a class="nav-link link-danger" href="#">飲料甜點</a>
+            </li>
+            <li class="nav-item d-inline-block">
+              <a class="nav-link link-danger" href="#">冷凍食品</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- 菜品區 combe/set-->
+        <div class="menu">
+          <section class="combo mb-5" id="first">
+            <div class="leading-article ">
+              <p>優惠專區</p>
+            </div>
+            <!-- 套餐*2 -->
+            <div class="set container">
+              <div class="row row-cols-xl-2 row-cols-lg-2 row-cols-md-1 row-cols-1">
+                <article class="meal col border rounded-2 p-4 d-flex">
+                  <div class="meal-contents">
+                    <div class="set-menu">
+                      <p>個人套餐(外帶限定)</p>
+                    </div>
+                    <div class="description me-3">
+                      <p>內含：沙拉、小食、個人份主食 <br>（松露野菇燉飯/紐奧良什錦飯/西班牙海鮮燉飯/義大利海鮮麵/番茄海鮮義大利麵/西西里鯷鮮烏魚子意麵/奶油雙菇雞肉麵/辣味義式蔬菜麵）</p>
+                      <span class="text-success">當日有庫存</span>
+                    </div>
+                    <div class="price mt-3">
+                      <button type="button" class=" btn btn-sm btn-danger">+</button>
+                      <span class="ms-2 align-middle">NT$380</span>
+                    </div>
+                  </div>
+                  <div class="meal-picture">
+                    <picture>
+                      <img src="./meal.webp" alt="meal">
+                    </picture>
+                  </div>
+                </article>
+                <article class="meal col border rounded-2 p-4 d-flex">
+                  <div class="meal-contents">
+                    <div class="set-menu">
+                      <p>個人套餐(外帶限定)</p>
+                    </div>
+                    <div class="description me-3">
+                      <p>內含：沙拉、小食、個人份主食 <br>（松露野菇燉飯/紐奧良什錦飯/西班牙海鮮燉飯/義大利海鮮麵/番茄海鮮義大利麵/西西里鯷鮮烏魚子意麵/奶油雙菇雞肉麵/辣味義式蔬菜麵）</p>
+                    </div>
+                    <div class="price">
+                      <button type="button" class=" btn btn-sm btn-danger">+</button>
+                      <span class="ms-2 align-middle">NT$380</span>
+                    </div>
+                  </div>
+                  <div class="meal-picture">
+                    <picture>
+                      <img src="./meal.webp" alt="meal">
+                    </picture>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+          <section class="combo mb-5" id="second">
+            <div class="leading-article">
+              <p>優惠專區</p>
+            </div>
+            <!-- 套餐*2 -->
+            <div class="set container">
+              <div class="row row-cols-lg-2 row-cols-md-1 row-cols-1 justify-content-between">
+                <article class="meal border rounded-2 p-4 d-flex">
+                  <div class="meal-contents">
+                    <div class="set-menu">
+                      <p>個人套餐(外帶限定)</p>
+                    </div>
+                    <div class="description me-3">
+                      <p>內含：沙拉、小食、個人份主食 <br>（松露野菇燉飯/紐奧良什錦飯/西班牙海鮮燉飯/義大利海鮮麵/番茄海鮮義大利麵/西西里鯷鮮烏魚子意麵/奶油雙菇雞肉麵/辣味義式蔬菜麵）</p>
+                    </div>
+                    <div class="price">
+                      <button type="button" class=" btn btn-sm btn-danger">+</button>
+                      <span class="ms-2 align-middle">NT$380</span>
+                    </div>
+                  </div>
+                  <div class="meal-picture">
+                    <picture>
+                      <img src="./meal.webp" alt="meal">
+                    </picture>
+                  </div>
+                </article>
+                <article class="meal border rounded-2 p-4 d-flex">
+                  <div class="meal-contents">
+                    <div class="set-menu">
+                      <p>個人套餐(外帶限定)</p>
+                    </div>
+                    <div class="description me-3">
+                      <p>內含：沙拉、小食、個人份主食 <br>（松露野菇燉飯/紐奧良什錦飯/西班牙海鮮燉飯/義大利海鮮麵/番茄海鮮義大利麵/西西里鯷鮮烏魚子意麵/奶油雙菇雞肉麵/辣味義式蔬菜麵）</p>
+                    </div>
+                    <div class="price">
+                      <button type="button" class=" btn btn-sm btn-danger">+</button>
+                      <span class="ms-2 align-middle">NT$380</span>
+                    </div>
+                  </div>
+                  <div class="meal-picture">
+                    <picture>
+                      <img src="./meal.webp" alt="meal">
+                    </picture>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="set container">
+              <div class="row row-cols-lg-2 row-cols-md-1 row-cols-1 justify-content-between">
+                <article class="meal border rounded-2 p-4 d-flex">
+                  <div class="meal-contents">
+                    <div class="set-menu">
+                      <p>個人套餐(外帶限定)</p>
+                    </div>
+                    <div class="description me-3">
+                      <p>內含：沙拉、小食、個人份主食 <br>（松露野菇燉飯/紐奧良什錦飯/西班牙海鮮燉飯/義大利海鮮麵/番茄海鮮義大利麵/西西里鯷鮮烏魚子意麵/奶油雙菇雞肉麵/辣味義式蔬菜麵）</p>
+                    </div>
+                    <div class="price">
+                      <button type="button" class=" btn btn-sm btn-danger">+</button>
+                      <span class="ms-2 align-middle">NT$380</span>
+                    </div>
+                  </div>
+                  <div class="meal-picture">
+                    <picture>
+                      <img src="./meal.webp" alt="meal">
+                    </picture>
+                  </div>
+                </article>
+                <article class="meal border rounded-2 p-4 d-flex">
+                  <div class="meal-contents">
+                    <div class="set-menu">
+                      <p>個人套餐(外帶限定)</p>
+                    </div>
+                    <div class="description me-3">
+                      <p>內含：沙拉、小食、個人份主食 <br>（松露野菇燉飯/紐奧良什錦飯/西班牙海鮮燉飯/義大利海鮮麵/番茄海鮮義大利麵/西西里鯷鮮烏魚子意麵/奶油雙菇雞肉麵/辣味義式蔬菜麵）</p>
+                    </div>
+                    <div class="price">
+                      <button type="button" class=" btn btn-sm btn-danger">+</button>
+                      <span class="ms-2 align-middle">NT$380</span>
+                    </div>
+                  </div>
+                  <div class="meal-picture">
+                    <picture>
+                      <img src="./meal.webp" alt="meal">
+                    </picture>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+    <footer class="footer bg-light m-auto text-center pt-3 pb-3">
+      <p class="mb-1">Openable 食品業者登錄字號：A-111111111-11111-1</p>
+      <p>Copyright &copy 2023 Openable Ltd. All Rights Reserved</p>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center">
+          <li class="breadcrumb-item"><a class="text-decoration-none text-danger" href="#">Terms of Use</a></li>
+          <li class="breadcrumb-item"><a class="text-decoration-none text-danger" href="#">Privacy Policy</a></li>
+          <li class="ms-2 me-2">Powered by</li>
+          <li class="breadcrumb-item"><a class="text-decoration-none text-danger" href="#">Openable</a></li>
+          <li class="ms-1">Version 1.7.98</li>
+        </ol>
+      </nav>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

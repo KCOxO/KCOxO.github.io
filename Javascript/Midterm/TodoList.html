@@ -84,10 +84,19 @@
             //渲染表格內容，btn加上自訂屬性，方便後續查詢btn
             if (data) {
                 data.forEach((item, index) => {
+
+                    //input 屬性 checked
+                    let x;
+                    if (item.status == true) {
+                        x = "checked";
+                    } else {
+                        x = "";
+                    }
+
                     ulDOM.innerHTML += `
                     <li class="list-group-item d-flex justify-content-between">
                         <div class="input-list">
-                            <input class="form-check-input me-1 inputbox" type="checkbox" value="" data-index="${index}">
+                            <input class="form-check-input me-1 inputbox" type="checkbox" value="" data-index="${index}" ${x}>
                             <span>${item.content}</span>
                         </div>
                         <div class="btn-list">
@@ -113,8 +122,9 @@
 
                 inputboxes.forEach(inputbox => {
                     inputbox.addEventListener('change', StorageTODO);
-
                 });
+
+
 
             }
         }
