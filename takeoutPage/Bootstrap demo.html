@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://127.0.0.1:5503/takeoutPage/trycard.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="./Bootstrap demo_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        .mobileminf {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <div class="card">
+                    <div class="card-body d-flex">
+                        <div class="dish content me-2">
+                            <p class="dish name mb-1">個人套餐(外帶限定)</p>
+                            <p class="description text-body-tertiary mobileminf mb-2">
+                                內含：沙拉、小食、個人份主食（松露野菇燉飯/紐奧良什錦飯/西班牙海鮮燉飯/義大利海鮮麵/番茄海鮮義大利麵/西西里鯷鮮烏魚子意麵/奶油雙菇雞肉麵/辣味義式蔬菜麵）
+                            </p>
+                            <span class="d-block text-success mb-2">當日有庫存</span>
+                        </div>
+                        <div class="dish picture">
+                            <img class="dish image rounded-3 object-fit-cover" style="width: 100%; height: 100%;" src="./Bootstrap demo_files/meal.webp" alt="meal">
+                        </div>
+                    </div>
+                    <div class="price mb-2 ms-3">
+                        <button type="button" class=" btn btn-sm btn-danger">+</button>
+                        <span class="ms-2 align-middle">NT$380</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <div class="card">
+                    <div class="card-body d-flex">
+                        <div class="dish content">
+                            <p class="dish name mb-1">個人套餐(外帶限定)</p>
+                            <p class="description text-body-tertiary mobileminf mb-2">
+                                內含：沙拉、小食、個人份主食（松露野菇燉飯/紐奧良什錦飯/西班牙海鮮燉飯/義大利海鮮麵/番茄海鮮義大利麵/西西里鯷鮮烏魚子意麵/奶油雙菇雞肉麵/辣味義式蔬菜麵）
+                            </p>
+                            <span class="d-block text-success mb-2">當日有庫存</span>
+                        </div>
+                        <div class="dish picture">
+                            <img class="dish image rounded-3 object-fit-cover" style="width: 100%; height: 100%;" src="./Bootstrap demo_files/meal.webp" alt="meal">
+                        </div>
+                    </div>
+                    <div class="price mb-2 ms-3">
+                        <button type="button" class=" btn btn-sm btn-danger">+</button>
+                        <span class="ms-2 align-middle">NT$380</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="./Bootstrap demo_files/bootstrap.bundle.min.js.下載" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
