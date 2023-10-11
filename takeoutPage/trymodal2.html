@@ -153,7 +153,50 @@
         </div>
     </div>
 
-    <!-- <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+
+    <div class="modal edittime" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true"
+        aria-labelledby="editModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-content">
+                    <div class="modal-header text-center mb-1">
+                        <h1 class="modal-title fs-5 fw-bold w-100 mobilefss" id="editModal">請選擇您要預訂的時段</h1>
+                    </div>
+                    <div class="modal-body row justify-content-evenly mb-3">
+                        <div class="mb-3 col-12">目前開放線上訂餐到為未來 22 天</div>
+                        <div class="slct_ymd icon_and_text_box col-6">
+                            <input class="ymd text" type="date" value="2023-09-19" name="SelectedYMD">
+                        </div>
+                        <div class="slct_time icon_and_text_box col-6">
+                            <select class="time text" id="SelectedTime" name="SelectedTime">
+                                <option value="0.0">上午 12:00</option>
+                                <option value="0.5">上午 12:30</option>
+                                <option value="1.0">上午 01:00</option>
+                                <option value="1.5">上午 01:30</option>
+                                <option value="2.0">上午 02:00</option>
+                                <option value="2.5">上午 02:30</option>
+                                <option value="3.0">上午 03:00</option>
+                                <option value="3.5">上午 03:30</option>
+                                <option value="4.0">上午 04:00</option>
+                                <option value="4.5">上午 04:30</option>
+                                <option value="5.0">上午 05:00</option>
+                                <option value="5.5">上午 05:30</option>
+                                <option value="6.0">上午 06:00</option>
+                                <option value="6.5">上午 06:30</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" data-bs-target="#cartModal" data-bs-toggle="modal">確定資訊</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Open first
+            modal</button> -->
+
+
+        <!-- <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
         tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -172,31 +215,12 @@
         </div>
     </div> -->
 
-    <div class="modal edittime" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true"
-        aria-labelledby="editModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="editModal">Modal 2</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Hide this modal and show the first with the button below.
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#cartModal" data-bs-toggle="modal">Back to
-                        first</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Open first
-        modal</button>
 
 
 
-    <!-- 桌機版LOGO -->
-    <!-- <footer class="cart area position-fixed bottom-0 mb-2 col-11">
+
+        <!-- 桌機版LOGO -->
+        <!-- <footer class="cart area position-fixed bottom-0 mb-2 col-11">
         <a type="button" class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#cartModal">購物車</a>
     </footer>
 
@@ -224,8 +248,8 @@
         </div>
     </div> -->
 
-    <!-- Modal -->
-    <!-- <div class=" modal fade" id="confirmModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        <!-- Modal -->
+        <!-- <div class=" modal fade" id="confirmModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -251,18 +275,54 @@
         </div>
     </div> -->
 
-    <div class="modal-dialog modal-dialog-centered">
-        ...
-    </div>
+        <div class="modal-dialog modal-dialog-centered">
+            ...
+        </div>
 
 
 
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const timeSlots = document.querySelectorAll(".time_slots>.time_slot");
+
+                timeSlots.forEach(function (ts) {
+                    ts.addEventListener("click", function () {
+                        const oNumPeople = ts.getAttribute("data-party-size");
+                        const oBookingYMD = ts.getAttribute("data-ymd");
+                        const oBookingTime = ts.getAttribute("data-time");
+                        const oRestaurantId = ts.getAttribute("data-restaurant-id");
+
+                        // URL
+                        const tSUrl = `/Search/GetoDData?oNumPeople=${oNumPeople}&oBookingYMD=${encodeURIComponent(oBookingYMD)}&oBookingTime=${encodeURIComponent(oBookingTime)}&oRestaurantId=${oRestaurantId}`;
+
+                        // GET請求
+                        window.location.href = tSUrl;
+                    });
+                });
+
+                dineOutBtns.forEach(function (dOBtn) {
+                    dOBtn.addEventListener("click", function () {
+                        const dBookingYMD = dOBtn.getAttribute("data-ymd");
+                        const dBookingTime = dOBtn.getAttribute("data-time");
+                        const dRestaurantId = dOBtn.getAttribute("data-restaurant-id");
+
+                        // URL
+                        const dOurl = `/Search/GetdOData?dBookingYMD=${encodeURIComponent(dBookingYMD)}&dBookingTime=${encodeURIComponent(dBookingTime)}&dRestaurantId=${dRestaurantId}`;
+
+                        // GET請求
+                        window.location.href = dOurl;
+                    });
+                });
+            });
+
+        </script>
 </body>
 
 </html>
