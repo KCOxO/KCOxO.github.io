@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <style>
+        #map {
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+        let latitude = 25.042624550999943;
+        let longtitude = 121.54967238708856;
+
+        //宣告容器位置，setView([經緯度座標],縮放) => GOOGLE紅點右鍵=座標
+        //縮放數值在0-19，通常會抽出來做變數
+        var map = L.map('map').setView([latitude, longtitude], 19);
+
+        //初始化的map=...無法重複使用，但是顯示的座標位置setView可重複使用
+        map.setView([25.041803558786743, 121.5354111382963], 19)
+
+        //顯示座標位置圖層
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            //商用需要標示COPYRIGHT
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        //顯示藍色標記
+        var marker = L.marker([latitude, longtitude]).addTo(map);
+
+        //顯示藍色標記上的資訊，openPopup=預設開啟文字視窗，刪除即不會預設開啟
+        marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+    </script>
+</body>
+
+</html>

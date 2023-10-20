@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- leaflet cdn -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- leaflet Plugin -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <!-- Boostrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        .container>.row {
+            height: 100vh;
+        }
+
+        #map {
+            height: 50vh;
+        }
+
+        /* 抓到結構內數字的DOM，修改顏色 */
+        div>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #FFFFFF;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(15, 18, 199, 0.8);
+            /* 使用 rgba() 設定顏色透明度 */
+        }
+
+        @media (min-width: 768px) {
+
+            /* 在md及以上的尺寸地圖改為視窗高度 */
+            #map {
+                height: 100vh;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 col-md-6 py-3 " id="content">
+                <div id="map" class=""></div>
+            </div>
+            <div class="col-12 col-md-6 py-3">
+                <div>
+                    <h2>YouBike2.0臺北市公共自行車即時資訊</h2>
+                    <p id="updateInfo">最後更新時間: 2021/08/20 12:00:00</p>
+                    <!-- !使用onclick直接呼叫方法 -->
+                    <p><button class="btn btn-outline-dark" onclick="renew()">更新地圖資料</button></p>
+                    <!-- 取得使用者座標位置 -->
+                    <!-- <p><button onclick="findUserGEO()">Show my location</button></p> -->
+                    <div id="currentLoc"></div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-text" id="basic-addon2">請輸入關鍵字</div>
+
+                        <input type="text" class="form-control" placeholder="" aria-label=""
+                            aria-describedby="basic-addon2" id="input">
+                        <button type="button" class="btn btn-outline-dark" id="query">查詢</button>
+
+                    </div>
+                </div>
+
+                <div id="queryResult">
+                    <!-- <div class="col-12 d-flex text-center">
+                        <div class="col-3 p-1"><strong>地點</strong></div>
+                        <div class="col-3 p-1"><strong>地址</strong></div>
+                        <div class="col-2 p-1"><strong>可借車輛</strong></div>
+                        <div class="col-2 p-1"><strong>可還車輛</strong></div>
+                        <div class="col-2 p-1"><strong></strong></div>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <div class="col-3 p-1">YouBike2.0_國北教大實小東側門</div>
+                        <div class="col-3 p-1">大安區和平東路二段96巷7號</div>
+                        <div class="col-2 p-1 text-center">3</div>
+                        <div class="col-2 p-1 text-center">13</div>
+                        <div class="col-2 p-1 text-end">
+                            <button type="button" class="btn btn-outline-dark">地圖</button>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Boostrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        //宣告變數
+        let latitude = 0
+        let longitude = 0
+        let zoom = 17
+
+        const url = 'https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json'
+        let youBikeData = []
+        let map
+        //將markers分區塊群組
+        let markers = L.markerClusterGroup();
+
+        //DOM
+        const updateInfoDom = document.querySelector('#updateInfo')
+        const inputDom = document.querySelector('#input');
+        const queryBtn = document.querySelector('#query')
+        const queryResultDom = document.querySelector('#queryResult')
+
+
+        window.onload = function () {
+            try {
+                //取得使用者座標位置
+                findUserGEO()
+                    //用.then接promise結果
+                    .then(res => {
+                        //console.log(res)
+
+                        //res座標放入全域變數
+                        latitude = res[0]
+                        longitude = res[1]
+
+                        initFN()
+                    })
+                    .catch(fe => {
+                        console.log(fe)
+                    })
+            } catch (te) {
+                console.log(te)
+            }
+
+        }
+
+        function initFN() {
+
+            //初始化地圖，取得座標並印出位置圖層
+            initMap();
+            //取得YouBike資料、渲染地圖
+            getMapData();
+        }
+
+        queryBtn.addEventListener('click', function () {
+            if (inputDom == '') {
+                alert('請輸入關鍵字')
+                return
+            } else {
+                query()
+            }
+        })
+
+        //查詢關鍵字、顯示查詢結果
+        function query() {
+            //初始化查詢結果
+            queryResultDom.innerHTML = ''
+
+            //過濾資料 => 輸入關鍵字(站名或地址包含關鍵字)
+            let filterData = youBikeData.filter(item => {
+
+                return item.sna.includes(inputDom.value) || item.ar.includes(inputDom.value)
+            })
+
+            console.log(filterData)
+
+            //動態生成標題欄位
+            let str =
+                `<div class="col-12 d-flex text-center">
+                        <div class="col-3 p-1"><strong>地點</strong></div>
+                        <div class="col-3 p-1"><strong>地址</strong></div>
+                        <div class="col-2 p-1"><strong>可借車輛</strong></div>
+                        <div class="col-2 p-1"><strong>可還車輛</strong></div>
+                        <div class="col-2 p-1"><strong></strong></div>
+                    </div>
+                    `
+            //是否包含關鍵字資料，如無=顯示查無資料
+            if (filterData == '') {
+                //要使用+=
+                str += `<div class="col-12 d-flex text-center">
+                        <div class="col-3 p-1"><strong>查無資料</strong></div>
+                        </div>
+                        `
+            } else {
+                //將查詢結果，迭代到畫面上
+                // sna=站名, ar=地址, sbi=可借數量, bemp=可還數量
+                //button掛上onclick事件執行goMap()，帶經度&緯度兩個參數，顯示站位
+                filterData.forEach(item => {
+                    str +=
+                        `<div class="col-12 d-flex">
+                        <div class="col-3 p-1">${item.sna}</div>
+                        <div class="col-3 p-1">${item.ar}</div>
+                        <div class="col-2 p-1 text-center">${item.sbi}</div>
+                        <div class="col-2 p-1 text-center">${item.bemp}</div>
+                        <div class="col-2 p-1 text-end">
+                            <button type="button" class="btn btn-outline-dark" onclick="goMap(${item.lat},${item.lng})">地圖</button>
+                        </div>
+                    </div>`
+                })
+            }
+
+            queryResultDom.innerHTML = str
+        }
+
+        //按下地圖按鈕，重新顯示站位
+        function goMap(lat, lng) {
+            //重新fetch最新資料
+            getMapData()
+            //重新設定該位置圖的經緯度
+            map.setView([lat, lng], 19)
+        }
+
+        //更新地圖按鈕
+        function renew() {
+            //重新取得資料(最新)
+            getMapData()
+            if (inputDom.value != '') {
+                //顯示查詢結果
+                query()
+            }
+        }
+
+
+        function getMapData() {
+            //取得JSON資料
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data)
+                    youBikeData = data
+                    //渲染地圖
+                    renderMap()
+
+                    //更新日期時間
+                    let today = new Date()
+                    console.log(today)
+
+                    let year = today.getFullYear()
+                    let month = today.getMonth() + 1
+                    let date = today.getDate()
+                    let hour = today.getHours()
+                    let min = today.getMinutes()
+
+                    month = updateInfo(month)
+                    date = updateInfo(date)
+                    hour = updateInfo(hour)
+                    min = updateInfo(min)
+
+                    console.log(`${year}/${month}/${date} ${hour}:${min}`)
+
+                    updateInfoDom.textContent = `最後更新時間: ${year}/${month}/${date} ${hour}:${min}`
+
+                })
+
+
+        }
+
+        function renderMap() {
+            ////如果已存在L.markerClusterGroup();藍色標記，要清除掉
+            if (markers) {
+                markers.clearLayers()
+            }
+            //取得逐筆YouBikeData、位置標記、popup文字窗
+            youBikeData.forEach(item => {
+                //迭代逐筆經緯度，顯示逐筆藍色標記
+                //拿掉.AaddTo(map) => (縮小時，僅顯示區域包含的數量)
+                var marker = L.marker([item.lat, item.lng])
+
+                //顯示藍色標記上的文字資訊，openPopup=預設開啟文字視窗，刪除即不會預設開啟
+                marker.bindPopup(
+                    `<h5>${item.sna}</h5>
+                    <p>${item.ar}</p>
+                    <p>可借車輛數:${item.sbi}</p>
+                    <p>可還車輛數:${item.bemp}</p>`
+                ).openPopup();
+
+                //L.markerClusterGroup();加上藍色群組數字
+                markers.addLayer(marker)
+            })
+            //map中加入L.markerClusterGroup();
+            map.addLayer(markers)
+        }
+
+        //補足兩位數字　e.g. 2月=02
+        function updateInfo(data) {
+            //如果 < 10，補0
+            let updateData = data < 10 ? '0' + data : data
+            return updateData
+        }
+
+
+        //取得座標並印出位置圖層
+        function initMap() {
+            //宣告容器位置，setView([經緯度座標],縮放) => GOOGLE紅點右鍵=座標
+            //縮放數值在0-19，通常會抽出來做變數
+            map = L.map('map').setView([latitude, longitude], zoom);
+
+            //顯示座標位置圖層
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                //商用需要標示COPYRIGHT
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+
+        }
+
+
+        function findUserGEO() {
+            // (1)先取得座標，在印出地圖資訊 => 使用Promise (將mdn語法放入Promise)
+            return new Promise((resolve, reject) => {
+
+                var output = document.getElementById("currentLoc");
+
+                if (!navigator.geolocation) {
+                    output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+                    return;
+                }
+
+                function success(position) {
+                    // (2)*** 已宣告的變數拿掉var
+                    latitude = position.coords.latitude;
+                    longitude = position.coords.longitude;
+
+                    output.innerHTML =
+                        "<p>Latitude is " +
+                        latitude +
+                        "° <br>Longitude is " +
+                        longitude +
+                        "°</p>";
+
+                    //show Googlemap地圖=>此專案內不需要
+                    // var img = new Image();
+                    // img.src =
+                    //     "http://maps.googleapis.com/maps/api/staticmap?center=" +
+                    //     latitude +
+                    //     "," +
+                    //     longitude +
+                    //     "&zoom=13&size=300x300&sensor=false";
+
+                    // output.appendChild(img);
+
+                    // (3)回傳成功執行後的值
+                    return resolve([latitude, longitude])
+                }
+
+                function error() {
+                    output.innerHTML = "Unable to retrieve your location";
+                    // (4)error時，指定特定經緯度
+                    latitude = 25.042624550999943;
+                    longitude = 121.54967238708856;
+                    // (5) TODO...  繼續執行列出圖層...
+                    initFN()
+                }
+
+                output.innerHTML = "<p>Locating…</p>";
+
+                navigator.geolocation.getCurrentPosition(success, error);
+            })
+        }
+
+
+    </script>
+</body>
+
+</html>
